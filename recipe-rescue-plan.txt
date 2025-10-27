@@ -1,0 +1,3384 @@
+# Recipe Rescue Pro - Complete Product Specification
+
+**Vision**: Build a comprehensive recipe platform that combines Supercook's 11M+ recipe database with intelligent expiration tracking, AI-powered ingredient recognition, and smart waste reduction features.
+
+**Target Timeline**: 3-6 months full development  
+**Team Size**: Solo developer (you) with potential for expansion  
+**Market Position**: Supercook + SmartPantry + Mealime combined
+
+---
+
+## 📊 Product Positioning
+
+### Competitive Analysis
+
+| Feature | Supercook | Recipe Rescue Pro | Advantage |
+|---------|-----------|-------------------|-----------|
+| Recipe Search by Ingredients | ✅ | ✅ | Match |
+| 11M+ Recipes from 18k sites | ✅ | ✅ | Match |
+| Manual Ingredient Entry | ✅ | ✅ | Match |
+| **AI Photo Recognition** | ❌ | ✅ | **UNIQUE** |
+| **Expiration Date Tracking** | ❌ | ✅ | **UNIQUE** |
+| **Waste Analytics** | ❌ | ✅ | **UNIQUE** |
+| **Priority Recipes (expiring items)** | ❌ | ✅ | **UNIQUE** |
+| Voice Input | ✅ | ✅ | Match |
+| Dietary Filters | ✅ (6 options) | ✅ (20+ options) | Better |
+| Shopping List | ✅ | ✅ Enhanced | Better |
+| Recipe Rating | ✅ | ✅ + ML ranking | Better |
+| Meal Planning | ❌ | ✅ | **UNIQUE** |
+| Barcode Scanning | ❌ | ✅ | **UNIQUE** |
+| Cost Tracking | ❌ | ✅ | **UNIQUE** |
+| Family Sharing | ❌ | ✅ | **UNIQUE** |
+
+---
+
+## 🎯 Core Features (All Phases)
+
+### Phase 1: Foundation (Months 1-2)
+**Goal**: Match Supercook's core functionality + basic expiration tracking
+
+#### 1.1 Intelligent Pantry Management
+- **Manual ingredient entry** with 2000+ searchable ingredients
+- **AI photo recognition** (Gemini Vision API)
+  - Bulk scanning: Take photo of entire fridge/pantry
+  - Single item scanning: Quick add specific items
+  - Confidence scoring and user confirmation
+  - Learning system: Improves accuracy over time
+- **Voice input mode** (Web Speech API / React Native Voice)
+  - "I have chicken, rice, onions, garlic..."
+  - Automatic ingredient parsing and addition
+- **Barcode scanning** (QuaggaJS / React Native Camera)
+  - Scan packaged goods
+  - Auto-pull product info, nutrition, typical expiration
+  - Integration with Open Food Facts API
+- **Ingredient categorization**
+  - Produce, Meat, Dairy, Grains, Spices, Condiments, etc.
+  - Custom categories
+  - Smart suggestions based on common groupings
+
+#### 1.2 Expiration Intelligence System
+- **Smart expiration tracking**
+  - Auto-suggest expiration dates based on ingredient type
+  - Different estimates for refrigerated/frozen/pantry
+  - User can override and system learns preferences
+- **Storage location aware**
+  - Track where items are stored (fridge, freezer, pantry, counter)
+  - Adjust expiration estimates accordingly
+  - Visual organization matching real kitchen layout
+- **Expiration alerts**
+  - "3 items expiring in 2 days"
+  - Daily digest of what needs to be used
+  - Smart grouping: "These 5 items can make X recipe"
+- **Visual expiration indicators**
+  - Green: Fresh (7+ days)
+  - Yellow: Use soon (3-6 days)
+  - Orange: Urgent (1-2 days)
+  - Red: Expiring today/expired
+  - Gray: Frozen (extended life)
+
+#### 1.3 Recipe Search Engine (Supercook Integration)
+- **Ingredient-based search**
+  - Use items in your pantry
+  - Show recipes you can make RIGHT NOW
+  - Show recipes missing 1-2 ingredients
+  - Show recipes missing 3-5 ingredients
+- **Advanced filters** (20+ options)
+  - Dietary: Vegetarian, Vegan, Pescatarian, Keto, Paleo, Gluten-Free, Dairy-Free, Nut-Free, Soy-Free, Low-Carb, Low-Fat, Low-Sodium, High-Protein
+  - Cuisine: Italian, Mexican, Indian, Chinese, Japanese, Thai, Mediterranean, American, French, Caribbean, Korean, Vietnamese
+  - Meal Type: Breakfast, Lunch, Dinner, Snack, Dessert, Appetizer, Side Dish
+  - Cooking Method: No-Cook, Slow Cooker, Instant Pot, Air Fryer, Grilling, Baking, Stovetop, Oven-Free
+  - Time: Under 15 min, 15-30 min, 30-60 min, 1+ hour
+  - Difficulty: Beginner, Intermediate, Advanced
+  - Occasion: Weeknight, Party, Holiday, Meal Prep, Kid-Friendly, Date Night
+- **Smart recipe ranking algorithm**
+  ```
+  Score = 
+    (% ingredients you have) × 40 +
+    (urgency of expiring ingredients) × 30 +
+    (user rating) × 15 +
+    (preparation time preference) × 10 +
+    (cuisine preference) × 5
+  ```
+- **Recipe aggregation** from multiple sources
+  - 11M+ recipes from 18,000 sites
+  - Parse and normalize recipe data
+  - Store metadata: prep time, cook time, servings, difficulty, nutrition
+- **Multi-language support** (20 languages)
+  - English, Spanish, French, German, Italian, Portuguese, Chinese, Japanese, Korean, Hindi, Arabic, Russian, Dutch, Swedish, Polish, Turkish, Thai, Vietnamese, Greek, Hebrew
+
+#### 1.4 Recipe Details & Management
+- **Comprehensive recipe view**
+  - Ingredients list with quantities
+  - Step-by-step instructions
+  - Prep time, cook time, total time
+  - Servings (adjustable)
+  - Nutrition information
+  - Source link
+  - User ratings and reviews
+  - Photos/videos when available
+- **Ingredient matching indicator**
+  - ✅ Have: chicken, rice, onion
+  - 🛒 Need: soy sauce, ginger
+  - 💡 Suggested alternatives
+- **One-click actions**
+  - Add missing ingredients to shopping list
+  - Mark recipe as "cooked"
+  - Save to favorites
+  - Add to meal plan
+  - Share recipe
+  - Report incorrect data
+
+---
+
+### Phase 2: Intelligence Layer (Month 3)
+**Goal**: Add AI-powered personalization and waste reduction features
+
+#### 2.1 Smart Recommendations Engine
+- **Personalized recipe suggestions**
+  - Learn from cooking history
+  - Analyze favorite cuisines and ingredients
+  - Consider time of day (breakfast suggestions in morning)
+  - Seasonal ingredient awareness
+  - Family preferences (if shared account)
+- **"Use This Week" feature**
+  - Weekly meal suggestions based on expiring items
+  - Balanced nutrition across week
+  - Variety in cuisines and cooking methods
+  - Considers your typical cooking schedule
+- **Smart substitutions**
+  - "Don't have milk? Use almond milk"
+  - Suggests alternatives based on what you have
+  - Explains how substitution affects recipe
+- **Recipe discovery**
+  - "Try something new" suggestions
+  - Trending recipes in your region
+  - Seasonal recipe recommendations
+  - Similar recipes carousel
+
+#### 2.2 Waste Reduction Analytics
+- **Personal waste dashboard**
+  - Total food saved (weight)
+  - Money saved (estimated value)
+  - Carbon footprint reduced
+  - Waste trends over time
+  - Most wasted items (learn and improve)
+- **Environmental impact**
+  - "You've prevented X kg of CO2 emissions"
+  - Compare to average household waste
+  - Gamification: Badges and achievements
+  - Social sharing of milestones
+- **Waste alerts**
+  - "You haven't used spinach in 4 days"
+  - "Tomatoes will expire tomorrow - here are 5 quick recipes"
+  - Weekly waste report with improvement tips
+- **Learning insights**
+  - "You often waste cilantro - buy smaller bunches"
+  - "Your apples last 3 days longer in the fridge"
+  - "You cook fish within 2 days - keep it up!"
+
+#### 2.3 Advanced Meal Planning
+- **Weekly meal planner**
+  - Drag-and-drop calendar interface
+  - Auto-generate meal plans based on inventory
+  - Balance nutrition across week
+  - Consider prep time and difficulty
+  - Batch cooking suggestions
+- **Prep day assistant**
+  - Group recipes by shared ingredients
+  - Optimal cooking order
+  - Make-ahead instructions
+  - Storage recommendations
+- **Leftover management**
+  - Track partial ingredients
+  - Suggest recipes for leftovers
+  - Portion planning to minimize waste
+- **Special occasions**
+  - Holiday meal planning
+  - Party menu builder
+  - Dietary accommodation helper
+
+#### 2.4 Shopping List Intelligence
+- **Smart shopping lists**
+  - Auto-generated from meal plan
+  - Organized by store layout/category
+  - Quantity optimization (recipes serving adjustments)
+  - Price tracking (optional API integration)
+  - Check off items in-store
+- **Store integration**
+  - Instacart, Amazon Fresh, Walmart+
+  - One-click order missing ingredients
+  - Price comparison
+  - Delivery scheduling
+- **Budget tracking**
+  - Set weekly/monthly grocery budget
+  - Track spending against budget
+  - Suggest budget-friendly alternatives
+  - Show cost per recipe
+- **Recurring items**
+  - Smart auto-add (you buy milk every week)
+  - Predict when you'll run out
+  - Subscription optimization suggestions
+
+---
+
+### Phase 3: Social & Advanced Features (Month 4)
+**Goal**: Build community and advanced power-user features
+
+#### 3.1 Family & Household Sharing
+- **Multi-user households**
+  - Shared pantry inventory
+  - Individual dietary preferences
+  - Cooking schedule coordination
+  - "Who's cooking tonight?"
+- **Permission levels**
+  - Admin: Full control
+  - Editor: Add/remove items, mark used
+  - Viewer: See inventory, request items
+- **Activity feed**
+  - "John used chicken for dinner"
+  - "Sarah added milk to shopping list"
+  - "Emily cooked Thai Basil Chicken - 5⭐"
+- **Communication tools**
+  - In-app notes: "Don't use the eggs, saving for cake"
+  - Meal requests: "Can someone make pasta this week?"
+  - Shopping assignments
+
+#### 3.2 Recipe Community Features
+- **User-generated content**
+  - Submit your own recipes
+  - Photo uploads
+  - Video tutorials
+  - Cooking tips and notes
+- **Social features**
+  - Follow other users
+  - Share recipes publicly or with friends
+  - Comment on recipes
+  - Like and save others' recipes
+  - Recipe collections/boards
+- **Cooking challenges**
+  - Weekly ingredient challenge
+  - Zero-waste week
+  - Budget cooking challenge
+  - Community cook-alongs
+- **Leaderboards**
+  - Most waste prevented
+  - Most creative recipes
+  - Helpful community members
+  - Streak tracking (consecutive days cooking)
+
+#### 3.3 Recipe Creator Studio
+- **Recipe builder**
+  - Add ingredients with auto-complete
+  - Step-by-step instruction editor
+  - Photo/video upload
+  - Nutrition calculator
+  - Serving size adjuster
+  - Timing and difficulty tags
+- **Recipe testing**
+  - Mark as "tested by X users"
+  - Collect feedback
+  - Iterate and improve
+- **Recipe monetization** (optional)
+  - Premium recipes from professional chefs
+  - Support creator tips
+  - Affiliate links for special equipment
+- **Import recipes**
+  - Paste URL from any recipe site
+  - AI parsing and formatting
+  - Auto-extract ingredients and steps
+  - Save to personal collection
+
+#### 3.4 Advanced Inventory Features
+- **Batch operations**
+  - "Mark all produce as used"
+  - "Extend expiration for freezer items"
+  - "Clear all expired items"
+  - Bulk edit categories
+- **Inventory history**
+  - See what you bought last month
+  - Seasonal buying patterns
+  - Frequency analysis
+  - Repeat last shopping trip
+- **Smart reordering**
+  - "You're out of staples: eggs, milk, bread"
+  - Auto-add frequently purchased items
+  - Seasonal adjustments
+- **Inventory templates**
+  - "Taco Tuesday Essentials"
+  - "Baking Basics"
+  - "Pizza Night Kit"
+  - Custom bundles
+
+---
+
+### Phase 4: Pro Features & Monetization (Month 5)
+**Goal**: Premium features and revenue streams
+
+#### 4.1 Pro Tier Features
+**Free Tier**:
+- 50 active pantry items
+- 10 photo scans/month
+- Basic recipe search
+- Manual expiration tracking
+- Single household
+- Ads (non-intrusive)
+
+**Pro Tier ($4.99/month or $39.99/year)**:
+- ✨ Unlimited pantry items
+- ✨ Unlimited photo scans
+- ✨ Advanced AI recommendations
+- ✨ Meal planning (up to 4 weeks)
+- ✨ Multiple households (3 max)
+- ✨ Priority customer support
+- ✨ Export data (CSV, PDF)
+- ✨ Ad-free experience
+- ✨ Early access to new features
+
+**Family Tier ($7.99/month or $69.99/year)**:
+- Everything in Pro
+- ✨ Up to 6 household members
+- ✨ Unlimited households
+- ✨ Advanced sharing controls
+- ✨ Family nutrition dashboard
+- ✨ Bulk meal planning
+- ✨ Custom recipe collections
+
+#### 4.2 Additional Revenue Streams
+1. **Affiliate Partnerships**
+   - Grocery delivery (5-10% commission)
+   - Kitchen equipment (Amazon Associates)
+   - Meal kit services
+   - Cookware brands
+2. **B2B Licensing**
+   - White-label for grocery stores
+   - Corporate wellness programs
+   - Educational institutions
+   - Sustainability initiatives
+3. **Data Insights** (anonymized, aggregated)
+   - Food waste trends reports
+   - Consumer behavior analysis
+   - Recipe popularity data
+   - Sell to food industry (ethical considerations)
+4. **Premium Content**
+   - Celebrity chef recipes ($1.99 each)
+   - Exclusive cooking courses
+   - Meal prep guides
+   - Dietary transformation programs
+
+#### 4.3 Marketing & Growth Features
+- **Referral program**
+  - "Invite 3 friends → 1 month Pro free"
+  - Both parties get rewards
+  - Shareable referral links
+- **Content marketing**
+  - Blog: Waste reduction tips, recipes, nutrition
+  - YouTube: Cooking tutorials, app guides
+  - Social media: Instagram, TikTok food trends
+  - Email newsletter: Weekly recipes
+- **SEO optimization**
+  - Recipe pages indexed by Google
+  - Rich snippets for search results
+  - Long-tail keyword targeting
+  - Backlink strategy
+- **Partnerships**
+  - Sustainability organizations
+  - Food banks (donate excess)
+  - Influencer collaborations
+  - Press coverage strategy
+
+---
+
+### Phase 5: Polish & Scale (Month 6+)
+**Goal**: Optimization, expansion, advanced integrations
+
+#### 5.1 Performance Optimization
+- **Speed improvements**
+  - Recipe search < 500ms
+  - Image upload < 2s
+  - AI recognition < 5s
+  - Aggressive caching strategy
+- **Offline mode**
+  - View saved recipes offline
+  - Queue actions for sync
+  - Downloadable recipe books
+- **Image optimization**
+  - WebP format
+  - Lazy loading
+  - CDN delivery
+  - Responsive images
+
+#### 5.2 Advanced Integrations
+- **Smart home integration**
+  - Amazon Alexa: "Alexa, what can I make for dinner?"
+  - Google Home: "Hey Google, add eggs to my pantry"
+  - Smart fridges: Auto-detect inventory
+  - IoT scales: Weigh ingredients automatically
+- **Fitness app sync**
+  - MyFitnessPal: Nutrition tracking
+  - Apple Health / Google Fit
+  - Macro tracking
+  - Calorie goals
+- **Calendar integration**
+  - Google Calendar: Meal plan sync
+  - Reminders for meal prep
+  - Cooking time blocking
+- **Note-taking apps**
+  - Notion, Evernote recipe import
+  - Export recipes to notes
+  - Sync personal recipe notes
+
+#### 5.3 Enterprise Features (B2B)
+- **Restaurant/Cafe mode**
+  - Bulk inventory management
+  - Cost tracking per recipe
+  - Waste reduction analytics
+  - Menu planning
+  - Vendor management
+- **Educational institution licensing**
+  - Cooking class curriculum
+  - Student meal planning
+  - Nutrition education
+  - Campus dining integration
+- **Corporate wellness**
+  - Employee meal programs
+  - Cafeteria integration
+  - Health challenge campaigns
+  - ROI reporting
+
+#### 5.4 International Expansion
+- **Localization**
+  - 20+ language full translations
+  - Regional ingredient databases
+  - Local cuisine preferences
+  - Cultural dietary considerations
+- **Regional recipe sources**
+  - Partner with local food blogs
+  - Country-specific recipe sites
+  - Traditional recipes database
+- **Currency & measurements**
+  - Auto-convert units (metric/imperial)
+  - Local currency for cost tracking
+  - Regional pricing data
+
+---
+
+## 🏗️ Technical Architecture
+
+### Frontend Stack
+
+**Web Application** (Primary Platform)
+```
+Framework: React 19 + TypeScript
+Build Tool: Vite
+Routing: React Router v6
+State Management: Zustand (lightweight) + React Query (server state)
+UI Library: TailwindCSS v4 + shadcn/ui
+Forms: React Hook Form + Zod validation
+Icons: Lucide React
+Animations: Framer Motion
+Charts: Recharts
+Image Handling: react-image-crop, compressorjs
+PWA: Vite PWA plugin (installable web app)
+```
+
+**Mobile Application** (React Native)
+```
+Framework: React Native + Expo
+Navigation: React Navigation v6
+State: Redux Toolkit (mobile requires more robust state)
+UI: React Native Paper + NativeBase
+Camera: Expo Camera
+Barcode: react-native-vision-camera
+Voice: react-native-voice
+Offline: WatermelonDB (local database)
+Push Notifications: Expo Notifications
+```
+
+**Shared Code** (Monorepo)
+```
+Repository Structure:
+/packages
+  /ui-components (shared components)
+  /utils (shared utilities)
+  /types (TypeScript types)
+  /api-client (API wrapper)
+/apps
+  /web (React web app)
+  /mobile (React Native app)
+  /admin (Admin dashboard)
+/services
+  /api (Backend services)
+```
+
+### Backend Architecture
+
+**Option A: Serverless (Recommended for MVP → Scale)**
+```
+Platform: Vercel (web) + Supabase (database + auth + storage)
+API: Vercel Serverless Functions (Node.js)
+Database: PostgreSQL (Supabase)
+File Storage: Supabase Storage
+Auth: Supabase Auth
+Realtime: Supabase Realtime (for family sharing)
+Cron Jobs: Vercel Cron (expiration alerts)
+```
+
+**Option B: Traditional Backend (If needed later)**
+```
+Server: Node.js + Express
+Database: PostgreSQL (RDS or Railway)
+ORM: Prisma
+Cache: Redis (Upstash)
+Queue: BullMQ (for background jobs)
+File Storage: S3 or Cloudinary
+Hosting: Railway, Render, or DigitalOcean
+```
+
+**Microservices Breakdown**:
+```
+/api
+  /auth          # User authentication
+  /inventory     # Pantry management
+  /recipes       # Recipe search & management
+  /ai            # Gemini vision processing
+  /analytics     # Waste tracking & insights
+  /notifications # Alerts & reminders
+  /shopping      # Shopping list management
+  /meal-plan     # Meal planning
+  /social        # Community features
+  /admin         # Admin tools
+```
+
+### Database Schema (Complete)
+
+```sql
+-- ============================================
+-- USERS & AUTHENTICATION
+-- ============================================
+
+CREATE TABLE users (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  email TEXT UNIQUE NOT NULL,
+  full_name TEXT,
+  avatar_url TEXT,
+  timezone TEXT DEFAULT 'UTC',
+  locale TEXT DEFAULT 'en',
+  subscription_tier TEXT DEFAULT 'free', -- free, pro, family
+  subscription_expires_at TIMESTAMP,
+  onboarding_completed BOOLEAN DEFAULT false,
+  preferences JSONB DEFAULT '{}',
+  created_at TIMESTAMP DEFAULT NOW(),
+  updated_at TIMESTAMP DEFAULT NOW(),
+  last_login_at TIMESTAMP
+);
+
+CREATE TABLE user_preferences (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  user_id UUID REFERENCES users(id) ON DELETE CASCADE,
+  dietary_restrictions TEXT[], -- ['vegetarian', 'gluten-free']
+  favorite_cuisines TEXT[],
+  disliked_ingredients TEXT[],
+  cooking_skill_level TEXT DEFAULT 'intermediate',
+  preferred_meal_times JSONB, -- {"breakfast": "08:00", "lunch": "12:00", "dinner": "19:00"}
+  portion_size_preference TEXT DEFAULT 'medium', -- small, medium, large
+  waste_tolerance TEXT DEFAULT 'medium', -- low, medium, high (affects expiration urgency)
+  notification_preferences JSONB DEFAULT '{}',
+  created_at TIMESTAMP DEFAULT NOW(),
+  updated_at TIMESTAMP DEFAULT NOW()
+);
+
+-- ============================================
+-- HOUSEHOLDS (Multi-user sharing)
+-- ============================================
+
+CREATE TABLE households (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  name TEXT NOT NULL,
+  owner_id UUID REFERENCES users(id) ON DELETE CASCADE,
+  invite_code TEXT UNIQUE,
+  max_members INTEGER DEFAULT 1, -- Increases with subscription
+  created_at TIMESTAMP DEFAULT NOW(),
+  updated_at TIMESTAMP DEFAULT NOW()
+);
+
+CREATE TABLE household_members (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  household_id UUID REFERENCES households(id) ON DELETE CASCADE,
+  user_id UUID REFERENCES users(id) ON DELETE CASCADE,
+  role TEXT DEFAULT 'editor', -- admin, editor, viewer
+  joined_at TIMESTAMP DEFAULT NOW(),
+  UNIQUE(household_id, user_id)
+);
+
+CREATE INDEX idx_household_members ON household_members(household_id, user_id);
+
+-- ============================================
+-- INVENTORY MANAGEMENT
+-- ============================================
+
+CREATE TABLE storage_locations (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  household_id UUID REFERENCES households(id) ON DELETE CASCADE,
+  name TEXT NOT NULL, -- 'Fridge', 'Freezer', 'Pantry', 'Counter'
+  type TEXT NOT NULL, -- 'refrigerated', 'frozen', 'room_temp'
+  icon TEXT, -- emoji or icon identifier
+  sort_order INTEGER DEFAULT 0,
+  created_at TIMESTAMP DEFAULT NOW()
+);
+
+CREATE TABLE ingredient_categories (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  name TEXT UNIQUE NOT NULL,
+  parent_category_id UUID REFERENCES ingredient_categories(id),
+  icon TEXT,
+  sort_order INTEGER DEFAULT 0
+);
+
+-- Master ingredient reference (for autocomplete and defaults)
+CREATE TABLE ingredients_master (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  name TEXT UNIQUE NOT NULL,
+  aliases TEXT[], -- ['cilantro', 'coriander', 'Chinese parsley']
+  category_id UUID REFERENCES ingredient_categories(id),
+  typical_unit TEXT, -- 'grams', 'ml', 'pieces', 'bunch'
+  avg_expiration_days JSONB, -- {"refrigerated": 7, "frozen": 90, "room_temp": 3}
+  avg_price_per_unit NUMERIC, -- For cost tracking
+  nutrition_data JSONB, -- Calories, protein, etc per 100g
+  barcode TEXT, -- For packaged goods
+  image_url TEXT,
+  created_at TIMESTAMP DEFAULT NOW(),
+  updated_at TIMESTAMP DEFAULT NOW()
+);
+
+CREATE TABLE inventory_items (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  household_id UUID REFERENCES households(id) ON DELETE CASCADE,
+  ingredient_id UUID REFERENCES ingredients_master(id),
+  custom_name TEXT, -- If not in master list
+  quantity NUMERIC DEFAULT 1,
+  unit TEXT,
+  storage_location_id UUID REFERENCES storage_locations(id),
+  purchase_date DATE DEFAULT CURRENT_DATE,
+  expiration_date DATE,
+  expiration_confidence NUMERIC, -- 0-1 score for auto-estimated dates
+  purchase_price NUMERIC,
+  notes TEXT,
+  image_url TEXT,
+  added_by_user_id UUID REFERENCES users(id),
+  is_opened BOOLEAN DEFAULT false,
+  opened_date DATE,
+  barcode TEXT,
+  brand TEXT,
+  
+  -- Computed fields
+  is_expired BOOLEAN GENERATED ALWAYS AS (expiration_date < CURRENT_DATE) STORED,
+  days_until_expiry INTEGER GENERATED ALWAYS AS (expiration_date - CURRENT_DATE) STORED,
+  urgency_level TEXT GENERATED ALWAYS AS (
+    CASE 
+      WHEN expiration_date - CURRENT_DATE < 0 THEN 'expired'
+      WHEN expiration_date - CURRENT_DATE <= 1 THEN 'critical'
+      WHEN expiration_date - CURRENT_DATE <= 3 THEN 'urgent'
+      WHEN expiration_date - CURRENT_DATE <= 7 THEN 'soon'
+      ELSE 'good'
+    END
+  ) STORED,
+  
+  created_at TIMESTAMP DEFAULT NOW(),
+  updated_at TIMESTAMP DEFAULT NOW()
+);
+
+CREATE INDEX idx_inventory_household ON inventory_items(household_id);
+CREATE INDEX idx_inventory_expiration ON inventory_items(expiration_date);
+CREATE INDEX idx_inventory_urgency ON inventory_items(urgency_level);
+
+-- Track when ingredients are used
+CREATE TABLE inventory_usage (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  inventory_item_id UUID REFERENCES inventory_items(id) ON DELETE CASCADE,
+  quantity_used NUMERIC NOT NULL,
+  used_by_user_id UUID REFERENCES users(id),
+  recipe_id UUID, -- References saved_recipes (defined below)
+  used_date TIMESTAMP DEFAULT NOW(),
+  notes TEXT
+);
+
+-- Expiration history for learning
+CREATE TABLE expiration_feedback (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  ingredient_id UUID REFERENCES ingredients_master(id),
+  user_id UUID REFERENCES users(id),
+  predicted_expiration DATE,
+  actual_expiration DATE,
+  storage_type TEXT,
+  was_accurate BOOLEAN,
+  created_at TIMESTAMP DEFAULT NOW()
+);
+
+-- ============================================
+-- RECIPES
+-- ============================================
+
+CREATE TABLE recipe_sources (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  name TEXT NOT NULL, -- 'AllRecipes', 'Food Network', etc.
+  url TEXT,
+  logo_url TEXT,
+  is_active BOOLEAN DEFAULT true
+);
+
+CREATE TABLE recipes (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  source_id UUID REFERENCES recipe_sources(id),
+  source_recipe_id TEXT, -- ID from source website
+  url TEXT UNIQUE,
+  title TEXT NOT NULL,
+  description TEXT,
+  prep_time_minutes INTEGER,
+  cook_time_minutes INTEGER,
+  total_time_minutes INTEGER,
+  servings INTEGER,
+  difficulty TEXT, -- beginner, intermediate, advanced
+  cuisine TEXT, -- Italian, Mexican, etc.
+  meal_type TEXT[], -- ['dinner', 'main_course']
+  cooking_methods TEXT[], -- ['baking', 'stovetop']
+  dietary_tags TEXT[], -- ['vegetarian', 'gluten-free']
+  instructions JSONB, -- Array of step objects
+  nutrition JSONB, -- Calories, protein, etc per serving
+  main_image_url TEXT,
+  images JSONB, -- Array of additional image URLs
+  video_url TEXT,
+  rating_avg NUMERIC DEFAULT 0,
+  rating_count INTEGER DEFAULT 0,
+  view_count INTEGER DEFAULT 0,
+  cook_count INTEGER DEFAULT 0,
+  save_count INTEGER DEFAULT 0,
+  language TEXT DEFAULT 'en',
+  is_user_generated BOOLEAN DEFAULT false,
+  created_by_user_id UUID REFERENCES users(id),
+  created_at TIMESTAMP DEFAULT NOW(),
+  updated_at TIMESTAMP DEFAULT NOW(),
+  last_scraped_at TIMESTAMP
+);
+
+CREATE INDEX idx_recipes_cuisine ON recipes(cuisine);
+CREATE INDEX idx_recipes_meal_type ON recipes USING GIN(meal_type);
+CREATE INDEX idx_recipes_dietary ON recipes USING GIN(dietary_tags);
+CREATE INDEX idx_recipes_rating ON recipes(rating_avg DESC);
+CREATE INDEX idx_recipes_search ON recipes USING GIN(to_tsvector('english', title || ' ' || description));
+
+CREATE TABLE recipe_ingredients (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  recipe_id UUID REFERENCES recipes(id) ON DELETE CASCADE,
+  ingredient_id UUID REFERENCES ingredients_master(id),
+  custom_ingredient_name TEXT, -- If not in master
+  quantity NUMERIC,
+  unit TEXT,
+  preparation TEXT, -- 'diced', 'minced', 'cooked'
+  is_optional BOOLEAN DEFAULT false,
+  ingredient_group TEXT, -- 'For the sauce', 'For topping'
+  sort_order INTEGER DEFAULT 0
+);
+
+CREATE INDEX idx_recipe_ingredients ON recipe_ingredients(recipe_id, ingredient_id);
+
+-- User interaction with recipes
+CREATE TABLE saved_recipes (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  user_id UUID REFERENCES users(id) ON DELETE CASCADE,
+  recipe_id UUID REFERENCES recipes(id) ON DELETE CASCADE,
+  collection_name TEXT, -- Custom collections/boards
+  notes TEXT,
+  saved_at TIMESTAMP DEFAULT NOW(),
+  UNIQUE(user_id, recipe_id)
+);
+
+CREATE TABLE cooked_recipes (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  user_id UUID REFERENCES users(id) ON DELETE CASCADE,
+  recipe_id UUID REFERENCES recipes(id) ON DELETE CASCADE,
+  household_id UUID REFERENCES households(id),
+  cooked_date DATE DEFAULT CURRENT_DATE,
+  rating INTEGER CHECK (rating >= 1 AND rating <= 5),
+  review TEXT,
+  modifications TEXT,
+  would_make_again BOOLEAN,
+  prep_time_actual INTEGER,
+  cook_time_actual INTEGER,
+  ingredients_used JSONB, -- Array of inventory_item IDs used
+  photos JSONB, -- User's photos of their cooked dish
+  created_at TIMESTAMP DEFAULT NOW()
+);
+
+CREATE INDEX idx_cooked_recipes_user ON cooked_recipes(user_id, cooked_date);
+
+-- Recipe matching scores (cached for performance)
+CREATE TABLE recipe_matches (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  household_id UUID REFERENCES households(id) ON DELETE CASCADE,
+  recipe_id UUID REFERENCES recipes(id) ON DELETE CASCADE,
+  match_score NUMERIC, -- 0-100
+  ingredients_have INTEGER,
+  ingredients_total INTEGER,
+  ingredients_missing TEXT[], -- IDs of missing ingredients
+  urgency_score NUMERIC, -- Based on expiring ingredients
+  calculated_at TIMESTAMP DEFAULT NOW(),
+  UNIQUE(household_id, recipe_id)
+);
+
+CREATE INDEX idx_recipe_matches ON recipe_matches(household_id, match_score DESC);
+
+-- ============================================
+-- MEAL PLANNING
+-- ============================================
+
+CREATE TABLE meal_plans (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  household_id UUID REFERENCES households(id) ON DELETE CASCADE,
+  name TEXT,
+  week_start_date DATE NOT NULL,
+  week_end_date DATE NOT NULL,
+  is_active BOOLEAN DEFAULT true,
+  auto_generated BOOLEAN DEFAULT false,
+  created_by_user_id UUID REFERENCES users(id),
+  created_at TIMESTAMP DEFAULT NOW(),
+  updated_at TIMESTAMP DEFAULT NOW()
+);
+
+CREATE TABLE meal_plan_items (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  meal_plan_id UUID REFERENCES meal_plans(id) ON DELETE CASCADE,
+  recipe_id UUID REFERENCES recipes(id),
+  scheduled_date DATE NOT NULL,
+  meal_type TEXT NOT NULL, -- breakfast, lunch, dinner, snack
+  servings INTEGER DEFAULT 4,
+  assigned_to_user_id UUID REFERENCES users(id), -- Who's cooking
+  prep_notes TEXT,
+  status TEXT DEFAULT 'planned', -- planned, prepped, cooked, skipped
+  created_at TIMESTAMP DEFAULT NOW()
+);
+
+CREATE INDEX idx_meal_plan_items ON meal_plan_items(meal_plan_id, scheduled_date);
+
+-- ============================================
+-- SHOPPING LISTS
+-- ============================================
+
+CREATE TABLE shopping_lists (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  household_id UUID REFERENCES households(id) ON DELETE CASCADE,
+  name TEXT DEFAULT 'Main Shopping List',
+  is_default BOOLEAN DEFAULT false,
+  store_name TEXT,
+  estimated_total NUMERIC,
+  created_by_user_id UUID REFERENCES users(id),
+  created_at TIMESTAMP DEFAULT NOW(),
+  updated_at TIMESTAMP DEFAULT NOW()
+);
+
+CREATE TABLE shopping_list_items (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  shopping_list_id UUID REFERENCES shopping_lists(id) ON DELETE CASCADE,
+  ingredient_id UUID REFERENCES ingredients_master(id),
+  custom_name TEXT,
+  quantity NUMERIC,
+  unit TEXT,
+  estimated_price NUMERIC,
+  category TEXT, -- For grouping in store
+  is_checked BOOLEAN DEFAULT false,
+  checked_by_user_id UUID REFERENCES users(id),
+  checked_at TIMESTAMP,
+  notes TEXT,
+  source TEXT, -- 'manual', 'recipe', 'meal_plan', 'auto_suggest'
+  source_recipe_id UUID REFERENCES recipes(id),
+  priority INTEGER DEFAULT 0, -- Higher = more urgent
+  sort_order INTEGER DEFAULT 0,
+  created_at TIMESTAMP DEFAULT NOW()
+);
+
+CREATE INDEX idx_shopping_list_items ON shopping_list_items(shopping_list_id, is_checked);
+
+-- ============================================
+-- ANALYTICS & INSIGHTS
+-- ============================================
+
+CREATE TABLE waste_events (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  household_id UUID REFERENCES households(id) ON DELETE CASCADE,
+  inventory_item_id UUID REFERENCES inventory_items(id),
+  ingredient_name TEXT,
+  quantity NUMERIC,
+  unit TEXT,
+  reason TEXT, -- 'expired', 'spoiled', 'forgot', 'too_much'
+  estimated_value NUMERIC,
+  reported_by_user_id UUID REFERENCES users(id),
+  waste_date DATE DEFAULT CURRENT_DATE,
+  could_have_prevented BOOLEAN,
+  created_at TIMESTAMP DEFAULT NOW()
+);
+
+CREATE TABLE waste_prevention_stats (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  household_id UUID REFERENCES households(id) ON DELETE CASCADE,
+  month DATE NOT NULL, -- First day of month
+  items_saved INTEGER DEFAULT 0,
+  items_wasted INTEGER DEFAULT 0,
+  value_saved NUMERIC DEFAULT 0,
+  value_wasted NUMERIC DEFAULT 0,
+  co2_prevented_kg NUMERIC DEFAULT 0, -- Environmental impact
+  recipes_cooked INTEGER DEFAULT 0,
+  top_saved_ingredients JSONB,
+  top_wasted_ingredients JSONB,
+  calculated_at TIMESTAMP DEFAULT NOW(),
+  UNIQUE(household_id, month)
+);
+
+CREATE TABLE user_cooking_stats (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  user_id UUID REFERENCES users(id) ON DELETE CASCADE,
+  month DATE NOT NULL,
+  recipes_cooked INTEGER DEFAULT 0,
+  favorite_cuisine TEXT,
+  avg_prep_time INTEGER,
+  cuisines_tried TEXT[],
+  achievements JSONB, -- Badges earned
+  cooking_streak INTEGER DEFAULT 0, -- Consecutive days
+  calculated_at TIMESTAMP DEFAULT NOW(),
+  UNIQUE(user_id, month)
+);
+
+-- ============================================
+-- NOTIFICATIONS & ALERTS
+-- ============================================
+
+CREATE TABLE notifications (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  user_id UUID REFERENCES users(id) ON DELETE CASCADE,
+  type TEXT NOT NULL, -- 'expiration', 'recipe_suggestion', 'achievement', 'social'
+  title TEXT NOT NULL,
+  message TEXT,
+  action_url TEXT,
+  related_entity_type TEXT, -- 'inventory_item', 'recipe', etc.
+  related_entity_id UUID,
+  priority TEXT DEFAULT 'normal', -- low, normal, high, urgent
+  is_read BOOLEAN DEFAULT false,
+  read_at TIMESTAMP,
+  sent_via_push BOOLEAN DEFAULT false,
+  sent_via_email BOOLEAN DEFAULT false,
+  created_at TIMESTAMP DEFAULT NOW()
+);
+
+CREATE INDEX idx_notifications_user ON notifications(user_id, is_read, created_at DESC);
+
+CREATE TABLE notification_schedules (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  household_id UUID REFERENCES households(id) ON DELETE CASCADE,
+  notification_type TEXT NOT NULL, -- 'daily_expiry', 'weekly_waste_report', 'meal_reminder'
+  schedule_time TIME, -- Time of day to send
+  schedule_days INTEGER[], -- Days of week (0-6, Sunday=0)
+  is_active BOOLEAN DEFAULT true,
+  last_sent_at TIMESTAMP,
+  created_at TIMESTAMP DEFAULT NOW()
+);
+
+-- ============================================
+-- SOCIAL & COMMUNITY
+-- ============================================
+
+CREATE TABLE user_follows (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  follower_user_id UUID REFERENCES users(id) ON DELETE CASCADE,
+  following_user_id UUID REFERENCES users(id) ON DELETE CASCADE,
+  followed_at TIMESTAMP DEFAULT NOW(),
+  UNIQUE(follower_user_id, following_user_id),
+  CHECK (follower_user_id != following_user_id)
+);
+
+CREATE TABLE recipe_comments (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  recipe_id UUID REFERENCES recipes(id) ON DELETE CASCADE,
+  user_id UUID REFERENCES users(id) ON DELETE CASCADE,
+  parent_comment_id UUID REFERENCES recipe_comments(id),
+  comment_text TEXT NOT NULL,
+  helpful_count INTEGER DEFAULT 0,
+  created_at TIMESTAMP DEFAULT NOW(),
+  updated_at TIMESTAMP DEFAULT NOW()
+);
+
+CREATE INDEX idx_recipe_comments ON recipe_comments(recipe_id, created_at DESC);
+
+CREATE TABLE recipe_collections (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  user_id UUID REFERENCES users(id) ON DELETE CASCADE,
+  name TEXT NOT NULL,
+  description TEXT,
+  is_public BOOLEAN DEFAULT false,
+  cover_image_url TEXT,
+  recipe_count INTEGER DEFAULT 0,
+  follower_count INTEGER DEFAULT 0,
+  created_at TIMESTAMP DEFAULT NOW(),
+  updated_at TIMESTAMP DEFAULT NOW()
+);
+
+CREATE TABLE collection_recipes (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  collection_id UUID REFERENCES recipe_collections(id) ON DELETE CASCADE,
+  recipe_id UUID REFERENCES recipes(id) ON DELETE CASCADE,
+  notes TEXT,
+  sort_order INTEGER DEFAULT 0,
+  added_at TIMESTAMP DEFAULT NOW(),
+  UNIQUE(collection_id, recipe_id)
+);
+
+CREATE TABLE cooking_challenges (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  name TEXT NOT NULL,
+  description TEXT,
+  challenge_type TEXT, -- 'zero_waste_week', 'budget_challenge', 'ingredient_challenge'
+  start_date DATE,
+  end_date DATE,
+  rules JSONB,
+  prize_description TEXT,
+  participant_count INTEGER DEFAULT 0,
+  is_active BOOLEAN DEFAULT true,
+  created_by_user_id UUID REFERENCES users(id),
+  created_at TIMESTAMP DEFAULT NOW()
+);
+
+CREATE TABLE challenge_participants (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  challenge_id UUID REFERENCES cooking_challenges(id) ON DELETE CASCADE,
+  user_id UUID REFERENCES users(id) ON DELETE CASCADE,
+  joined_at TIMESTAMP DEFAULT NOW(),
+  progress_data JSONB, -- Challenge-specific progress tracking
+  completion_status TEXT DEFAULT 'in_progress', -- in_progress, completed, abandoned
+  final_score NUMERIC,
+  rank INTEGER,
+  UNIQUE(challenge_id, user_id)
+);
+
+-- ============================================
+-- AI & MACHINE LEARNING DATA
+-- ============================================
+
+CREATE TABLE ai_scan_history (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  user_id UUID REFERENCES users(id) ON DELETE CASCADE,
+  household_id UUID REFERENCES households(id),
+  image_url TEXT NOT NULL,
+  scan_type TEXT, -- 'bulk', 'single', 'barcode'
+  ai_response JSONB, -- Raw AI output
+  ingredients_detected JSONB, -- Parsed ingredients
+  confidence_scores JSONB,
+  user_corrections JSONB, -- What user changed
+  scan_duration_ms INTEGER,
+  created_at TIMESTAMP DEFAULT NOW()
+);
+
+CREATE TABLE ingredient_substitutions (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  original_ingredient_id UUID REFERENCES ingredients_master(id),
+  substitute_ingredient_id UUID REFERENCES ingredients_master(id),
+  substitution_ratio NUMERIC DEFAULT 1, -- How much substitute per original
+  context TEXT, -- 'baking', 'cooking', 'any'
+  quality_score NUMERIC, -- How good the substitution is (0-1)
+  notes TEXT,
+  created_at TIMESTAMP DEFAULT NOW()
+);
+
+-- Learning from user behavior
+CREATE TABLE user_behavior_patterns (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  user_id UUID REFERENCES users(id) ON DELETE CASCADE,
+  pattern_type TEXT, -- 'favorite_cuisine', 'cooking_frequency', 'waste_tendency'
+  pattern_data JSONB,
+  confidence NUMERIC, -- 0-1 score
+  last_updated TIMESTAMP DEFAULT NOW()
+);
+
+-- ============================================
+-- ADMIN & MODERATION
+-- ============================================
+
+CREATE TABLE admin_users (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  user_id UUID REFERENCES users(id) UNIQUE,
+  role TEXT NOT NULL, -- 'super_admin', 'moderator', 'support'
+  permissions JSONB,
+  created_at TIMESTAMP DEFAULT NOW()
+);
+
+CREATE TABLE content_reports (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  reported_by_user_id UUID REFERENCES users(id),
+  content_type TEXT, -- 'recipe', 'comment', 'user'
+  content_id UUID,
+  reason TEXT,
+  description TEXT,
+  status TEXT DEFAULT 'pending', -- pending, reviewing, resolved, dismissed
+  reviewed_by_admin_id UUID REFERENCES admin_users(id),
+  resolution_notes TEXT,
+  created_at TIMESTAMP DEFAULT NOW(),
+  resolved_at TIMESTAMP
+);
+
+CREATE TABLE system_logs (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  event_type TEXT, -- 'error', 'warning', 'info', 'security'
+  user_id UUID REFERENCES users(id),
+  message TEXT,
+  metadata JSONB,
+  ip_address INET,
+  user_agent TEXT,
+  created_at TIMESTAMP DEFAULT NOW()
+);
+
+-- ============================================
+-- SUBSCRIPTION & BILLING
+-- ============================================
+
+CREATE TABLE subscriptions (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  user_id UUID REFERENCES users(id) ON DELETE CASCADE,
+  tier TEXT NOT NULL, -- 'free', 'pro', 'family'
+  status TEXT NOT NULL, -- 'active', 'cancelled', 'expired', 'past_due'
+  stripe_customer_id TEXT,
+  stripe_subscription_id TEXT,
+  current_period_start TIMESTAMP,
+  current_period_end TIMESTAMP,
+  cancel_at_period_end BOOLEAN DEFAULT false,
+  cancelled_at TIMESTAMP,
+  trial_end TIMESTAMP,
+  created_at TIMESTAMP DEFAULT NOW(),
+  updated_at TIMESTAMP DEFAULT NOW()
+);
+
+CREATE TABLE payment_history (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  user_id UUID REFERENCES users(id) ON DELETE CASCADE,
+  subscription_id UUID REFERENCES subscriptions(id),
+  amount NUMERIC NOT NULL,
+  currency TEXT DEFAULT 'USD',
+  status TEXT, -- 'succeeded', 'failed', 'refunded'
+  stripe_payment_intent_id TEXT,
+  payment_date TIMESTAMP DEFAULT NOW(),
+  description TEXT
+);
+
+-- ============================================
+-- API USAGE TRACKING (for rate limiting)
+-- ============================================
+
+CREATE TABLE api_usage (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  user_id UUID REFERENCES users(id),
+  endpoint TEXT,
+  request_count INTEGER DEFAULT 1,
+  date DATE DEFAULT CURRENT_DATE,
+  created_at TIMESTAMP DEFAULT NOW(),
+  UNIQUE(user_id, endpoint, date)
+);
+
+-- ============================================
+-- FUNCTIONS & TRIGGERS
+-- ============================================
+
+-- Auto-update updated_at timestamp
+CREATE OR REPLACE FUNCTION update_updated_at_column()
+RETURNS TRIGGER AS $
+BEGIN
+  NEW.updated_at = NOW();
+  RETURN NEW;
+END;
+$ LANGUAGE plpgsql;
+
+-- Apply to all tables with updated_at
+CREATE TRIGGER update_users_updated_at BEFORE UPDATE ON users
+  FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
+
+CREATE TRIGGER update_inventory_items_updated_at BEFORE UPDATE ON inventory_items
+  FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
+
+CREATE TRIGGER update_recipes_updated_at BEFORE UPDATE ON recipes
+  FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
+
+-- Add more triggers for other tables...
+
+-- Function to calculate recipe match scores
+CREATE OR REPLACE FUNCTION calculate_recipe_match_score(
+  p_household_id UUID,
+  p_recipe_id UUID
+) RETURNS NUMERIC AS $
+DECLARE
+  v_total_ingredients INTEGER;
+  v_have_ingredients INTEGER;
+  v_match_percentage NUMERIC;
+  v_urgency_score NUMERIC := 0;
+BEGIN
+  -- Count total ingredients in recipe
+  SELECT COUNT(*) INTO v_total_ingredients
+  FROM recipe_ingredients
+  WHERE recipe_id = p_recipe_id;
+  
+  -- Count how many ingredients household has
+  SELECT COUNT(DISTINCT ri.ingredient_id) INTO v_have_ingredients
+  FROM recipe_ingredients ri
+  JOIN inventory_items ii ON ri.ingredient_id = ii.ingredient_id
+  WHERE ri.recipe_id = p_recipe_id
+    AND ii.household_id = p_household_id
+    AND ii.is_expired = false;
+  
+  -- Calculate base match percentage
+  IF v_total_ingredients > 0 THEN
+    v_match_percentage := (v_have_ingredients::NUMERIC / v_total_ingredients) * 100;
+  ELSE
+    v_match_percentage := 0;
+  END IF;
+  
+  -- Calculate urgency bonus (recipes using expiring ingredients get boost)
+  SELECT AVG(
+    CASE 
+      WHEN ii.days_until_expiry <= 1 THEN 30
+      WHEN ii.days_until_expiry <= 3 THEN 20
+      WHEN ii.days_until_expiry <= 7 THEN 10
+      ELSE 0
+    END
+  ) INTO v_urgency_score
+  FROM recipe_ingredients ri
+  JOIN inventory_items ii ON ri.ingredient_id = ii.ingredient_id
+  WHERE ri.recipe_id = p_recipe_id
+    AND ii.household_id = p_household_id
+    AND ii.is_expired = false;
+  
+  -- Return combined score
+  RETURN v_match_percentage + COALESCE(v_urgency_score, 0);
+END;
+$ LANGUAGE plpgsql;
+
+-- ============================================
+-- ROW LEVEL SECURITY (RLS) POLICIES
+-- ============================================
+
+-- Enable RLS on all tables
+ALTER TABLE users ENABLE ROW LEVEL SECURITY;
+ALTER TABLE households ENABLE ROW LEVEL SECURITY;
+ALTER TABLE inventory_items ENABLE ROW LEVEL SECURITY;
+ALTER TABLE recipes ENABLE ROW LEVEL SECURITY;
+-- ... enable for all tables
+
+-- Example policies for inventory_items
+CREATE POLICY "Users can view their household's inventory"
+  ON inventory_items FOR SELECT
+  USING (
+    household_id IN (
+      SELECT household_id FROM household_members
+      WHERE user_id = auth.uid()
+    )
+  );
+
+CREATE POLICY "Users can insert into their household's inventory"
+  ON inventory_items FOR INSERT
+  WITH CHECK (
+    household_id IN (
+      SELECT household_id FROM household_members
+      WHERE user_id = auth.uid()
+      AND role IN ('admin', 'editor')
+    )
+  );
+
+-- Similar policies for all tables...
+
+-- ============================================
+-- INDEXES FOR PERFORMANCE
+-- ============================================
+
+CREATE INDEX idx_inventory_household_expiry ON inventory_items(household_id, expiration_date);
+CREATE INDEX idx_recipes_ingredients ON recipe_ingredients(recipe_id, ingredient_id);
+CREATE INDEX idx_cooked_recipes_date ON cooked_recipes(user_id, cooked_date DESC);
+CREATE INDEX idx_waste_events_household ON waste_events(household_id, waste_date DESC);
+CREATE INDEX idx_shopping_list_unchecked ON shopping_list_items(shopping_list_id) WHERE is_checked = false;
+CREATE INDEX idx_notifications_unread ON notifications(user_id, created_at DESC) WHERE is_read = false;
+
+-- Full-text search indexes
+CREATE INDEX idx_ingredients_search ON ingredients_master USING GIN(to_tsvector('english', name || ' ' || COALESCE(array_to_string(aliases, ' '), '')));
+CREATE INDEX idx_recipes_fulltext ON recipes USING GIN(to_tsvector('english', title || ' ' || COALESCE(description, '')));
+```
+
+---
+
+## 🔧 API Architecture
+
+### REST API Endpoints
+
+```javascript
+// ============================================
+// AUTH ENDPOINTS
+// ============================================
+POST   /api/auth/signup
+POST   /api/auth/login
+POST   /api/auth/logout
+POST   /api/auth/refresh-token
+POST   /api/auth/forgot-password
+POST   /api/auth/reset-password
+GET    /api/auth/me
+PATCH  /api/auth/me
+POST   /api/auth/verify-email
+
+// ============================================
+// HOUSEHOLD MANAGEMENT
+// ============================================
+GET    /api/households
+POST   /api/households
+GET    /api/households/:id
+PATCH  /api/households/:id
+DELETE /api/households/:id
+POST   /api/households/:id/invite
+POST   /api/households/join/:inviteCode
+GET    /api/households/:id/members
+DELETE /api/households/:id/members/:userId
+PATCH  /api/households/:id/members/:userId/role
+
+// ============================================
+// INVENTORY ENDPOINTS
+// ============================================
+GET    /api/inventory                        # Get household inventory
+POST   /api/inventory                        # Add item manually
+POST   /api/inventory/bulk                   # Add multiple items
+GET    /api/inventory/:id
+PATCH  /api/inventory/:id                    # Update item
+DELETE /api/inventory/:id
+POST   /api/inventory/:id/use                # Mark as used (partial/full)
+POST   /api/inventory/scan/photo             # AI photo recognition
+POST   /api/inventory/scan/barcode           # Barcode scan
+POST   /api/inventory/scan/voice             # Voice input parsing
+GET    /api/inventory/expiring               # Items expiring soon
+GET    /api/inventory/expired                # Expired items
+GET    /api/inventory/stats                  # Inventory statistics
+
+// ============================================
+// RECIPE ENDPOINTS
+// ============================================
+GET    /api/recipes                          # Search recipes
+GET    /api/recipes/:id
+POST   /api/recipes                          # Create user recipe
+PATCH  /api/recipes/:id
+DELETE /api/recipes/:id
+GET    /api/recipes/recommended              # Personalized recommendations
+GET    /api/recipes/can-make-now             # Recipes with current inventory
+GET    /api/recipes/missing-few              # Missing 1-2 ingredients
+POST   /api/recipes/:id/save                 # Save to favorites
+DELETE /api/recipes/:id/save
+POST   /api/recipes/:id/cook                 # Mark as cooked
+POST   /api/recipes/:id/rate                 # Rate recipe
+GET    /api/recipes/:id/comments
+POST   /api/recipes/:id/comments
+POST   /api/recipes/import                   # Import from URL
+GET    /api/recipes/trending
+GET    /api/recipes/popular
+
+// Recipe Search Query Parameters:
+// ?ingredients=chicken,rice,onion
+// ?dietary=vegetarian,gluten-free
+// ?cuisine=italian,mexican
+// ?maxTime=30
+// ?difficulty=beginner
+// ?mealType=dinner
+// ?sortBy=match_score|rating|popularity|newest
+
+// ============================================
+// MEAL PLANNING
+// ============================================
+GET    /api/meal-plans
+POST   /api/meal-plans                       # Create meal plan
+GET    /api/meal-plans/:id
+PATCH  /api/meal-plans/:id
+DELETE /api/meal-plans/:id
+POST   /api/meal-plans/auto-generate         # AI-generated meal plan
+GET    /api/meal-plans/current               # This week's plan
+POST   /api/meal-plans/:id/items
+PATCH  /api/meal-plans/:id/items/:itemId
+DELETE /api/meal-plans/:id/items/:itemId
+POST   /api/meal-plans/:id/generate-shopping-list
+
+// ============================================
+// SHOPPING LIST
+// ============================================
+GET    /api/shopping-lists
+POST   /api/shopping-lists
+GET    /api/shopping-lists/:id
+PATCH  /api/shopping-lists/:id
+DELETE /api/shopping-lists/:id
+POST   /api/shopping-lists/:id/items
+PATCH  /api/shopping-lists/:id/items/:itemId
+DELETE /api/shopping-lists/:id/items/:itemId
+POST   /api/shopping-lists/:id/items/:itemId/check
+POST   /api/shopping-lists/:id/items/:itemId/uncheck
+POST   /api/shopping-lists/:id/clear-checked
+POST   /api/shopping-lists/:id/export         # Export for delivery services
+
+// ============================================
+// ANALYTICS & INSIGHTS
+// ============================================
+GET    /api/analytics/waste                  # Waste statistics
+GET    /api/analytics/savings                # Money saved
+GET    /api/analytics/environmental          # CO2 impact
+GET    /api/analytics/cooking-stats          # Personal cooking data
+GET    /api/analytics/trends                 # Usage patterns
+POST   /api/analytics/waste-event            # Report wasted food
+
+// ============================================
+// AI & SMART FEATURES
+// ============================================
+POST   /api/ai/analyze-image                 # Gemini vision analysis
+POST   /api/ai/parse-voice                   # Voice command parsing
+POST   /api/ai/suggest-recipes               # Personalized suggestions
+POST   /api/ai/smart-substitutions           # Ingredient alternatives
+POST   /api/ai/optimize-meal-plan            # Optimize existing plan
+GET    /api/ai/insights                      # AI-generated insights
+
+// ============================================
+// SOCIAL & COMMUNITY
+// ============================================
+POST   /api/users/:id/follow
+DELETE /api/users/:id/unfollow
+GET    /api/users/:id/followers
+GET    /api/users/:id/following
+GET    /api/collections                      # Recipe collections
+POST   /api/collections
+GET    /api/collections/:id
+PATCH  /api/collections/:id
+DELETE /api/collections/:id
+POST   /api/collections/:id/recipes/:recipeId
+DELETE /api/collections/:id/recipes/:recipeId
+GET    /api/challenges                       # Cooking challenges
+POST   /api/challenges/:id/join
+GET    /api/challenges/:id/leaderboard
+POST   /api/recipes/:id/comments/:commentId/helpful
+
+// ============================================
+// NOTIFICATIONS
+// ============================================
+GET    /api/notifications
+PATCH  /api/notifications/:id/read
+PATCH  /api/notifications/read-all
+DELETE /api/notifications/:id
+GET    /api/notifications/preferences
+PATCH  /api/notifications/preferences
+
+// ============================================
+// SUBSCRIPTIONS
+// ============================================
+GET    /api/subscription
+POST   /api/subscription/create-checkout     # Stripe checkout
+POST   /api/subscription/cancel
+POST   /api/subscription/resume
+PATCH  /api/subscription/upgrade
+GET    /api/subscription/invoices
+POST   /api/subscription/update-payment
+
+// ============================================
+// ADMIN ENDPOINTS
+// ============================================
+GET    /api/admin/users
+GET    /api/admin/statistics
+GET    /api/admin/reports
+POST   /api/admin/moderate-content
+GET    /api/admin/scrape-recipes             # Trigger recipe scraping
+```
+
+---
+
+## 🤖 AI Integration Details
+
+### Gemini Vision API Integration
+
+```javascript
+// services/geminiService.js
+
+class GeminiVisionService {
+  constructor() {
+    this.apiKey = process.env.GEMINI_API_KEY;
+    this.model = 'gemini-pro-vision';
+  }
+
+  async analyzeIngredients(imageBase64, options = {}) {
+    const prompt = this.buildPrompt(options);
+    
+    try {
+      const response = await fetch(
+        `https://generativelanguage.googleapis.com/v1/models/${this.model}:generateContent`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'x-goog-api-key': this.apiKey
+          },
+          body: JSON.stringify({
+            contents: [{
+              parts: [
+                { text: prompt },
+                {
+                  inline_data: {
+                    mime_type: 'image/jpeg',
+                    data: imageBase64
+                  }
+                }
+              ]
+            }],
+            generationConfig: {
+              temperature: 0.2, // Low temperature for accuracy
+              topK: 40,
+              topP: 0.95,
+              maxOutputTokens: 2048,
+            }
+          })
+        }
+      );
+
+      const data = await response.json();
+      return this.parseGeminiResponse(data);
+      
+    } catch (error) {
+      console.error('Gemini API Error:', error);
+      throw new Error('Failed to analyze image');
+    }
+  }
+
+  buildPrompt(options) {
+    return `Analyze this image and identify all food ingredients visible.
+
+Instructions:
+1. List each ingredient separately
+2. Estimate quantities if visible (e.g., "3 apples", "1 bunch of cilantro")
+3. Identify storage state (fresh, wilting, packaged, opened)
+4. Note any visible expiration dates or "best by" labels
+5. Categorize each item (produce, meat, dairy, grain, etc.)
+
+Return ONLY valid JSON in this exact format:
+{
+  "ingredients": [
+    {
+      "name": "ingredient name",
+      "quantity": number or null,
+      "unit": "pieces|bunch|grams|ml|package" or null,
+      "category": "produce|meat|dairy|grain|condiment|spice|other",
+      "condition": "fresh|good|wilting|opened|unopened",
+      "confidence": 0.0-1.0,
+      "visible_expiration": "date string" or null,
+      "notes": "any additional context"
+    }
+  ],
+  "overall_confidence": 0.0-1.0,
+  "image_quality": "excellent|good|fair|poor",
+  "recommendations": "any suggestions for better scanning"
+}
+
+Focus on accuracy. If unsure about an item, mark confidence as low.`;
+  }
+
+  parseGeminiResponse(data) {
+    try {
+      const text = data.candidates[0].content.parts[0].text;
+      
+      // Extract JSON from markdown code blocks if present
+      const jsonMatch = text.match(/```json\n([\s\S]*?)\n```/) || 
+                       text.match(/{[\s\S]*}/);
+      
+      if (!jsonMatch) {
+        throw new Error('No valid JSON found in response');
+      }
+
+      const parsed = JSON.parse(jsonMatch[1] || jsonMatch[0]);
+      
+      // Validate and sanitize response
+      return this.validateAndEnhance(parsed);
+      
+    } catch (error) {
+      console.error('Failed to parse Gemini response:', error);
+      throw new Error('Invalid AI response format');
+    }
+  }
+
+  validateAndEnhance(parsed) {
+    if (!parsed.ingredients || !Array.isArray(parsed.ingredients)) {
+      throw new Error('Invalid ingredients array');
+    }
+
+    return {
+      ingredients: parsed.ingredients.map(ing => ({
+        name: this.normalizeIngredientName(ing.name),
+        quantity: ing.quantity || null,
+        unit: ing.unit || null,
+        category: ing.category || 'other',
+        condition: ing.condition || 'good',
+        confidence: Math.min(Math.max(ing.confidence || 0.7, 0), 1),
+        visible_expiration: ing.visible_expiration || null,
+        notes: ing.notes || null,
+        // Add estimated expiration if not visible
+        estimated_expiration_days: this.estimateExpiration(
+          ing.name,
+          ing.category,
+          ing.condition
+        )
+      })),
+      overall_confidence: parsed.overall_confidence || 0.7,
+      image_quality: parsed.image_quality || 'good',
+      recommendations: parsed.recommendations || null,
+      processed_at: new Date().toISOString()
+    };
+  }
+
+  normalizeIngredientName(name) {
+    // Convert to lowercase, remove extra spaces
+    return name.toLowerCase().trim().replace(/\s+/g, ' ');
+  }
+
+  estimateExpiration(name, category, condition) {
+    const expirationMap = {
+      produce: { fresh: 7, good: 5, wilting: 2 },
+      meat: { fresh: 3, good: 2, wilting: 1 },
+      dairy: { unopened: 14, opened: 7, good: 5 },
+      grain: { unopened: 180, opened: 90, good: 60 },
+      // Add more categories
+    };
+
+    const categoryData = expirationMap[category] || { fresh: 7, good: 5 };
+    return categoryData[condition] || categoryData.good || 7;
+  }
+
+  // Batch processing for multiple images
+  async analyzeBatch(images) {
+    const results = await Promise.allSettled(
+      images.map(img => this.analyzeIngredients(img))
+    );
+
+    return {
+      successful: results.filter(r => r.status === 'fulfilled').map(r => r.value),
+      failed: results.filter(r => r.status === 'rejected').map(r => r.reason),
+      total: images.length
+    };
+  }
+}
+
+export default new GeminiVisionService();
+```
+
+### Supercook API Integration
+
+```javascript
+// services/supercookService.js
+
+class SupercookService {
+  constructor() {
+    this.baseURL = process.env.SUPERCOOK_API_URL;
+    this.apiKey = process.env.SUPERCOOK_API_KEY;
+  }
+
+  async searchRecipes(params) {
+    const {
+      ingredients = [],
+      exclude_ingredients = [],
+      dietary_filters = [],
+      cuisine = null,
+      max_time = null,
+      difficulty = null,
+      meal_type = null,
+      limit = 50,
+      offset = 0
+    } = params;
+
+    try {
+      const response = await fetch(`${this.baseURL}/search`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${this.apiKey}`
+        },
+        body: JSON.stringify({
+          ingredients,
+          exclude: exclude_ingredients,
+          diet: dietary_filters,
+          cuisine,
+          maxTime: max_time,
+          difficulty,
+          mealType: meal_type,
+          limit,
+          offset
+        })
+      });
+
+      const data = await response.json();
+      return this.enhanceRecipeResults(data.recipes, ingredients);
+      
+    } catch (error) {
+      console.error('Supercook API Error:', error);
+      throw new Error('Failed to fetch recipes');
+    }
+  }
+
+  enhanceRecipeResults(recipes, userIngredients) {
+    return recipes.map(recipe => {
+      const matchData = this.calculateMatch(recipe.ingredients, userIngredients);
+      
+      return {
+        ...recipe,
+        match_percentage: matchData.percentage,
+        ingredients_have: matchData.have,
+        ingredients_missing: matchData.missing,
+        missing_count: matchData.missing.length,
+        can_make_now: matchData.missing.length === 0,
+        priority_score: this.calculatePriorityScore(recipe, matchData)
+      };
+    });
+  }
+
+  calculateMatch(recipeIngredients, userIngredients) {
+    const normalized = userIngredients.map(i => i.toLowerCase().trim());
+    
+    const have = recipeIngredients.filter(ri => 
+      normalized.some(ui => 
+        ri.toLowerCase().includes(ui) || ui.includes(ri.toLowerCase())
+      )
+    );
+    
+    const missing = recipeIngredients.filter(ri => !have.includes(ri));
+    
+    return {
+      have,
+      missing,
+      percentage: (have.length / recipeIngredients.length) * 100
+    };
+  }
+
+  calculatePriorityScore(recipe, matchData) {
+    let score = 0;
+    
+    // Match percentage (40 points)
+    score += matchData.percentage * 0.4;
+    
+    // Recipe rating (30 points)
+    score += (recipe.rating || 0) * 6; // Assuming 5-star scale
+    
+    // Preparation time (20 points - faster = better)
+    const timeScore = Math.max(0, 20 - (recipe.totalTime / 5));
+    score += timeScore;
+    
+    // Popularity (10 points)
+    const popularityScore = Math.min(10, (recipe.views || 0) / 1000);
+    score += popularityScore;
+    
+    return Math.round(score);
+  }
+
+  async getRecipeDetails(recipeId) {
+    try {
+      const response = await fetch(`${this.baseURL}/recipes/${recipeId}`, {
+        headers: {
+          'Authorization': `Bearer ${this.apiKey}`
+        }
+      });
+      
+      return await response.json();
+    } catch (error) {
+      console.error('Failed to fetch recipe details:', error);
+      throw error;
+    }
+  }
+
+  async scrapeRecipeFromURL(url) {
+    try {
+      const response = await fetch(`${this.baseURL}/scrape`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${this.apiKey}`
+        },
+        body: JSON.stringify({ url })
+      });
+      
+      return await response.json();
+    } catch (error) {
+      console.error('Failed to scrape recipe:', error);
+      throw error;
+    }
+  }
+}
+
+export default new SupercookService();
+```
+
+---
+
+## 📱 Frontend Architecture
+
+### Component Structure (Detailed)
+
+```
+src/
+├── app/
+│   ├── layout.tsx                    # Root layout
+│   ├── page.tsx                      # Landing page
+│   ├── (auth)/
+│   │   ├── login/
+│   │   ├── signup/
+│   │   └── forgot-password/
+│   ├── (dashboard)/
+│   │   ├── layout.tsx                # Dashboard layout with sidebar
+│   │   ├── page.tsx                  # Dashboard home
+│   │   ├── inventory/
+│   │   │   ├── page.tsx              # Inventory list
+│   │   │   ├── add/page.tsx          # Add items
+│   │   │   ├── scan/page.tsx         # Camera scan
+│   │   │   └── [id]/page.tsx         # Item details
+│   │   ├── recipes/
+│   │   │   ├── page.tsx              # Recipe search
+│   │   │   ├── [id]/page.tsx         # Recipe details
+│   │   │   ├── create/page.tsx       # Create recipe
+│   │   │   └── saved/page.tsx        # Saved recipes
+│   │   ├── meal-plan/
+│   │   │   ├── page.tsx              # Meal calendar
+│   │   │   └── create/page.tsx       # Create plan
+│   │   ├── shopping/
+│   │   │   └── page.tsx              # Shopping lists
+│   │   ├── analytics/
+│   │   │   └── page.tsx              # Waste analytics
+│   │   ├── community/
+│   │   │   ├── page.tsx              # Community feed
+│   │   │   ├── challenges/page.tsx   # Cooking challenges
+│   │   │   └── collections/page.tsx  # Recipe collections
+│   │   └── settings/
+│   │       ├── page.tsx              # Account settings
+│   │       ├── household/page.tsx    # Household management
+│   │       └── subscription/page.tsx # Billing
+│   └── api/                          # API routes (if using Next.js)
+│
+├── components/
+│   ├── ui/                           # shadcn components
+│   │   ├── button.tsx
+│   │   ├── card.tsx
+│   │   ├── dialog.tsx
+│   │   ├── dropdown-menu.tsx
+│   │   ├── input.tsx
+│   │   ├── calendar.tsx
+│   │   └── ...
+│   ├── layout/
+│   │   ├── Navbar.tsx
+│   │   ├── Sidebar.tsx
+│   │   ├── Footer.tsx
+│   │   └── MobileNav.tsx
+│   ├── inventory/
+│   │   ├── InventoryList.tsx
+│   │   ├── InventoryCard.tsx
+│   │   ├── InventoryFilters.tsx
+│   │   ├── ExpirationBadge.tsx
+│   │   ├── StorageLocationPicker.tsx
+│   │   ├── CameraCapture.tsx
+│   │   ├── ImagePreview.tsx
+│   │   ├── BarcodeScanner.tsx
+│   │   ├── VoiceInput.tsx
+│   │   ├── IngredientAutocomplete.tsx
+│   │   └── BulkActions.tsx
+│   ├── recipes/
+│   │   ├── RecipeSearch.tsx
+│   │   ├── RecipeGrid.tsx
+│   │   ├── RecipeCard.tsx
+│   │   ├── RecipeDetails.tsx
+│   │   ├── RecipeFilters.tsx
+│   │   ├── IngredientMatchIndicator.tsx
+│   │   ├── RecipeRating.tsx
+│   │   ├── RecipeComments.tsx
+│   │   ├── RecipeImporter.tsx
+│   │   └── RecipeCreator.tsx
+│   ├── meal-plan/
+│   │   ├── MealCalendar.tsx
+│   │   ├── MealPlanCard.tsx
+│   │   ├── MealPlanGenerator.tsx
+│   │   └── DragDropMeal.tsx
+│   ├── shopping/
+│   │   ├── ShoppingList.tsx
+│   │   ├── ShoppingListItem.tsx
+│   │   ├── CategoryGrouping.tsx
+│   │   └── StoreIntegration.tsx
+│   ├── analytics/
+│   │   ├── WasteDashboard.tsx
+│   │   ├── SavingsChart.tsx
+│   │   ├── EnvironmentalImpact.tsx
+│   │   ├── CookingStats.tsx
+│   │   └── TrendAnalysis.tsx
+│   ├── community/
+│   │   ├── ActivityFeed.tsx
+│   │   ├── UserProfile.tsx
+│   │   ├── ChallengeCard.tsx
+│   │   ├── Leaderboard.tsx
+│   │   └── CollectionGrid.tsx
+│   └── common/
+│       ├── LoadingSpinner.tsx
+│       ├── ErrorBoundary.tsx
+│       ├── EmptyState.tsx
+│       ├── ConfirmDialog.tsx
+│       ├── NotificationToast.tsx
+│       └── ImageUploader.tsx
+│
+├── lib/
+│   ├── api/                          # API client functions
+│   │   ├── auth.ts
+│   │   ├── inventory.ts
+│   │   ├── recipes.ts
+│   │   ├── mealPlan.ts
+│   │   └── analytics.ts
+│   ├── hooks/                        # Custom React hooks
+│   │   ├── useAuth.ts
+│   │   ├── useInventory.ts
+│   │   ├── useRecipes.ts
+│   │   ├── useCamera.ts
+│   │   ├── useVoiceInput.ts
+│   │   ├── useLocalStorage.ts
+│   │   └── useDebounce.ts
+│   ├── stores/                       # Zustand stores
+│   │   ├── authStore.ts
+│   │   ├── inventoryStore.ts
+│   │   ├── recipeStore.ts
+│   │   └── uiStore.ts
+│   ├── utils/
+│   │   ├── dateHelpers.ts
+│   │   ├── imageCompression.ts
+│   │   ├── expirationCalculator.ts
+│   │   ├── nutritionCalculator.ts
+│   │   ├── costCalculator.ts
+│   │   └── validators.ts
+│   ├── constants/
+│   │   ├── dietary.ts
+│   │   ├── cuisines.ts
+│   │   ├── categories.ts
+│   │   └── units.ts
+│   └── types/
+│       ├── inventory.ts
+│       ├── recipe.ts
+│       ├── user.ts
+│       └── api.ts
+│
+├── styles/
+│   └── globals.css
+│
+└── public/
+    ├── icons/
+    ├── images/
+    └── manifest.json
+```
+
+---
+
+## 🚀 Development Roadmap
+
+### **Phase 1: Foundation (Weeks 1-8)**
+
+#### Week 1-2: Setup & Core Infrastructure
+- [ ] Initialize monorepo (Turborepo or Nx)
+- [ ] Setup development environment
+- [ ] Configure Supabase project
+- [ ] Run database migrations
+- [ ] Setup authentication flow
+- [ ] Create basic UI layouts
+- [ ] Implement routing
+
+#### Week 3-4: Inventory Management MVP
+- [ ] Manual ingredient entry with autocomplete
+- [ ] Storage location management
+- [ ] Basic expiration date tracking
+- [ ] Inventory list view with filters
+- [ ] CRUD operations for inventory items
+- [ ] Local storage for offline support
+
+#### Week 5-6: AI Integration
+- [ ] Gemini Vision API integration
+- [ ] Camera capture component
+- [ ] Image preprocessing
+- [ ] AI response parsing
+- [ ] User confirmation flow
+- [ ] Batch scanning support
+- [ ] Error handling & retry logic
+
+#### Week 7-8: Recipe Search & Basic Features
+- [ ] Supercook API integration
+- [ ] Recipe search by ingredients
+- [ ] Recipe details page
+- [ ] Basic filtering (dietary, cuisine, time)
+- [ ] Recipe match scoring algorithm
+- [ ] Save/favorite recipes
+- [ ] Recipe rating system
+
+**Phase 1 Deliverable**: Working MVP with core inventory + recipe search
+
+---
+
+### **Phase 2: Intelligence & Optimization (Weeks 9-16)**
+
+#### Week 9-10: Smart Recommendations
+- [ ] Personalization algorithm
+- [ ] Recipe recommendation engine
+- [ ] "Use this week" feature
+- [ ] Expiration-based prioritization
+- [ ] Smart substitutions
+- [ ] Learning from user behavior
+
+#### Week 11-12: Waste Analytics
+- [ ] Waste tracking dashboard
+- [ ] Environmental impact calculations
+- [ ] Money saved calculator
+- [ ] Waste trends visualization
+- [ ] Weekly reports
+- [ ] Achievement badges
+
+#### Week 13-14: Meal Planning
+- [ ] Weekly meal planner calendar
+- [ ] Drag-and-drop interface
+- [ ] Auto-generate meal plans
+- [ ] Nutritional balancing
+- [ ] Prep day assistant
+- [ ] Leftover management
+
+#### Week 15-16: Shopping List Intelligence
+- [ ] Smart shopping list generation
+- [ ] Category-based organization
+- [ ] Price tracking (optional)
+- [ ] Store layout customization
+- [ ] Budget tracking
+- [ ] Recurring items detection
+
+**Phase 2 Deliverable**: Intelligent platform with personalization
+
+---
+
+### **Phase 3: Social & Advanced Features (Weeks 17-24)**
+
+#### Week 17-18: Multi-User Households
+- [ ] Household creation & management
+- [ ] Invite system
+- [ ] Permission levels
+- [ ] Shared inventory
+- [ ] Activity feed
+- [ ] Member coordination tools
+
+#### Week 19-20: Community Features
+- [ ] User profiles
+- [ ] Follow/unfollow system
+- [ ] Recipe collections/boards
+- [ ] Comments & ratings
+- [ ] Social sharing
+- [ ] Public recipe discovery
+
+#### Week 21-22: Recipe Creator Studio
+- [ ] Recipe builder interface
+- [ ] Photo/video upload
+- [ ] Nutrition calculator
+- [ ] Recipe testing feedback
+- [ ] Import from URL
+- [ ] AI-powered recipe parsing
+
+#### Week 23-24: Advanced Inventory
+- [ ] Barcode scanning
+- [ ] Voice input
+- [ ] Batch operations
+- [ ] Inventory history
+- [ ] Smart reordering
+- [ ] Inventory templates
+
+**Phase 3 Deliverable**: Full-featured social platform
+
+---
+
+### **Phase 4: Monetization & Scale (Weeks 25-32)**
+
+#### Week 25-26: Subscription System
+- [ ] Stripe integration
+- [ ] Tier management (Free/Pro/Family)
+- [ ] Payment processing
+- [ ] Subscription management
+- [ ] Invoice generation
+- [ ] Trial period handling
+
+#### Week 27-28: Premium Features
+- [ ] Feature gating by tier
+- [ ] Usage tracking & limits
+- [ ] Advanced analytics for Pro users
+- [ ] Multiple households for Family tier
+- [ ] Priority support system
+- [ ] Ad system for free tier
+
+#### Week 29-30: Mobile Apps
+- [ ] React Native setup
+- [ ] Core features ported to mobile
+- [ ] Native camera integration
+- [ ] Push notifications
+- [ ] Offline mode with sync
+- [ ] App store submission
+
+#### Week 31-32: Integrations & Polish
+- [ ] Grocery delivery APIs
+- [ ] Smart home integration (Alexa, Google)
+- [ ] Fitness app sync
+- [ ] Calendar integration
+- [ ] Performance optimization
+- [ ] SEO optimization
+
+**Phase 4 Deliverable**: Production-ready platform with monetization
+
+---
+
+### **Phase 5: Growth & Enterprise (Ongoing)**
+
+#### Months 7-9: Marketing & Growth
+- [ ] Content marketing strategy
+- [ ] SEO optimization
+- [ ] Referral program
+- [ ] Influencer partnerships
+- [ ] Press kit & outreach
+- [ ] A/B testing framework
+
+#### Months 10-12: Enterprise Features
+- [ ] B2B licensing
+- [ ] White-label options
+- [ ] Restaurant mode
+- [ ] Educational institution features
+- [ ] Corporate wellness integration
+- [ ] API for third-party integrations
+
+#### Ongoing: Maintenance & Expansion
+- [ ] International localization
+- [ ] New recipe sources
+- [ ] AI model improvements
+- [ ] Feature requests from users
+- [ ] Bug fixes & optimization
+- [ ] Scaling infrastructure
+
+---
+
+## 💰 Business Model & Pricing
+
+### Freemium Tiers
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                         FREE TIER                            │
+├─────────────────────────────────────────────────────────────┤
+│ ✓ 50 active pantry items                                    │
+│ ✓ 10 AI photo scans/month                                   │
+│ ✓ Basic recipe search (11M+ recipes)                        │
+│ ✓ Manual expiration tracking                                │
+│ ✓ 1 household                                               │
+│ ✓ Basic waste analytics                                     │
+│ ✓ Shopping list (1 active list)                            │
+│ ✗ Meal planning                                             │
+│ ✗ Advanced AI recommendations                               │
+│ ✗ Priority support                                          │
+│ ⚠ Ads (non-intrusive)                                       │
+│                                                             │
+│ Price: FREE forever                                         │
+└─────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────┐
+│                      PRO TIER ⭐                            │
+├─────────────────────────────────────────────────────────────┤
+│ ✓ Everything in Free                                        │
+│ ✓ UNLIMITED pantry items                                    │
+│ ✓ UNLIMITED AI photo scans                                  │
+│ ✓ Advanced AI recommendations                               │
+│ ✓ Meal planning (4 weeks ahead)                            │
+│ ✓ 3 households                                              │
+│ ✓ Advanced waste analytics & insights                       │
+│ ✓ Multiple shopping lists                                   │
+│ ✓ Barcode scanning                                          │
+│ ✓ Voice input                                               │
+│ ✓ Priority customer support                                 │
+│ ✓ Export data (CSV, PDF)                                    │
+│ ✓ Ad-free experience                                        │
+│ ✓ Early access to new features                              │
+│                                                             │
+│ Price: $4.99/month or $39.99/year (33% savings)            │
+└─────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────┐
+│                    FAMILY TIER 👨‍👩‍👧‍👦                       │
+├─────────────────────────────────────────────────────────────┤
+│ ✓ Everything in Pro                                         │
+│ ✓ Up to 6 household members                                 │
+│ ✓ UNLIMITED households                                      │
+│ ✓ Advanced family sharing controls                          │
+│ ✓ Family nutrition dashboard                                │
+│ ✓ Bulk meal planning                                        │
+│ ✓ Custom recipe collections (unlimited)                     │
+│ ✓ Family cooking challenges                                 │
+│ ✓ Shared grocery budgets                                    │
+│ ✓ Priority support for all members                          │
+│                                                             │
+│ Price: $7.99/month or $69.99/year (27% savings)            │
+└─────────────────────────────────────────────────────────────┘
+```
+
+### Revenue Projections (Conservative)
+
+```
+Year 1 Targets:
+- 10,000 free users (baseline)
+- 500 Pro subscribers (5% conversion) = $2,495/month
+- 50 Family subscribers (0.5% conversion) = $399/month
+- Affiliate revenue: ~$500/month
+Total Year 1 Revenue: ~$40,000
+
+Year 2 Targets:
+- 50,000 free users
+- 2,500 Pro subscribers (5%) = $12,475/month
+- 250 Family subscribers (0.5%) = $1,997/month
+- Affiliate revenue: ~$2,000/month
+- B2B licensing: $5,000/month
+Total Year 2 Revenue: ~$260,000
+
+Year 3 Targets:
+- 200,000 free users
+- 10,000 Pro subscribers (5%) = $49,900/month
+- 1,000 Family subscribers (0.5%) = $7,990/month
+- Affiliate revenue: ~$10,000/month
+- B2B licensing: $20,000/month
+Total Year 3 Revenue: ~$1,050,000
+```
+
+---
+
+## 🧪 Testing Strategy
+
+### Unit Tests
+```javascript
+// Example: Expiration calculator tests
+describe('ExpirationCalculator', () => {
+  it('should calculate correct expiration for refrigerated produce', () => {
+    const result = calculateExpiration('lettuce', 'refrigerated', 'fresh');
+    expect(result.days).toBe(5);
+    expect(result.confidence).toBeGreaterThan(0.8);
+  });
+
+  it('should adjust for opened vs unopened items', () => {
+    const unopened = calculateExpiration('milk', 'refrigerated', 'unopened');
+    const opened = calculateExpiration('milk', 'refrigerated', 'opened');
+    expect(unopened.days).toBeGreaterThan(opened.days);
+  });
+});
+
+// Example: Recipe matching tests
+describe('RecipeMatching', () => {
+  it('should correctly calculate match percentage', () => {
+    const recipeIngredients = ['chicken', 'rice', 'onion', 'garlic'];
+    const userIngredients = ['chicken', 'rice', 'garlic'];
+    const match = calculateMatch(recipeIngredients, userIngredients);
+    expect(match.percentage).toBe(75);
+  });
+});
+```
+
+### Integration Tests
+```javascript
+// API endpoint testing
+describe('Inventory API', () => {
+  it('should add item to inventory', async () => {
+    const response = await request(app)
+      .post('/api/inventory')
+      .send({
+        name: 'Chicken Breast',
+        quantity: 2,
+        unit: 'pounds',
+        storage_location_id: 'fridge-123'
+      });
+    
+    expect(response.status).toBe(201);
+    expect(response.body.data.name).toBe('Chicken Breast');
+  });
+});
+```
+
+### E2E Tests (Playwright)
+```javascript
+// User flow testing
+test('complete inventory scanning flow', async ({ page }) => {
+  await page.goto('/inventory/add');
+  await page.click('[data-testid="camera-button"]');
+  
+  // Upload test image
+  await page.setInputFiles('input[type="file"]', 'test-images/fridge.jpg');
+  
+  // Wait for AI processing
+  await page.waitForSelector('[data-testid="ingredient-list"]');
+  
+  // Verify results
+  const items = await page.$('[data-testid="ingredient-item"]');
+  expect(items.length).toBeGreaterThan(0);
+  
+  // Confirm and save
+  await page.click('[data-testid="confirm-button"]');
+  await expect(page).toHaveURL('/inventory');
+});
+```
+
+---
+
+## 📊 Key Metrics to Track
+
+### Product Metrics
+- **Activation**: % users who add first inventory item
+- **Engagement**: Daily/Weekly/Monthly active users
+- **Retention**: Day 1, Day 7, Day 30 retention
+- **Feature Usage**: Scan vs manual entry ratio
+- **Recipe Discovery**: Recipes viewed per session
+- **Cooking Rate**: % of viewed recipes actually cooked
+- **Waste Prevention**: Items saved vs wasted ratio
+
+### Business Metrics
+- **Conversion Rate**: Free → Pro/Family
+- **Churn Rate**: Monthly subscription cancellations
+- **LTV**: Customer lifetime value
+- **CAC**: Customer acquisition cost
+- **MRR/ARR**: Monthly/Annual recurring revenue
+- **NPS**: Net Promoter Score
+
+### Technical Metrics
+- **API Response Time**: < 500ms for searches
+- **AI Processing Time**: < 5s for image analysis
+- **Uptime**: 99.9% target
+- **Error Rate**: < 0.1%
+- **Page Load Time**: < 2s
+
+---
+
+## 🎨 Design System
+
+### Color Palette
+```css
+/* Primary - Fresh Green (sustainability) */
+--primary-50: #f0fdf4;
+--primary-500: #22c55e;
+--primary-900: #14532d;
+
+/* Secondary - Orange (urgency) */
+--secondary-50: #fff7ed;
+--secondary-500: #f97316;
+--secondary-900: #7c2d12;
+
+/* Neutral */
+--gray-50: #f9fafb;
+--gray-500: #6b7280;
+--gray-900: #111827;
+
+/* Semantic */
+--success: #10b981;
+--warning: #fbbf24;
+--error: #ef4444;
+--info: #3b82f6;
+```
+
+### Typography
+```css
+/* Headings */
+font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+/* Body */
+font-family: 'Inter', sans-serif;
+
+/* Mono (for data) */
+font-family: 'JetBrains Mono', monospace;
+```
+
+### Component Patterns
+- **Cards**: Elevated, subtle shadows, rounded corners
+- **Buttons**: Clear hierarchy (primary, secondary, ghost)
+- **Forms**: Inline validation, helpful error messages
+- **Data Viz**: Recharts with custom green-orange theme
+- **Avatars**: Circle for users, square for recipes
+- **Badges**: Pill-shaped for tags, square for counts
+
+---
+
+## 🔒 Security Considerations
+
+### Authentication
+- JWT tokens with short expiration (15 min access, 7 day refresh)
+- HTTP-only cookies for refresh tokens
+- Rate limiting on auth endpoints
+- 2FA support (optional for Pro users)
+- Password requirements: min 8 chars, 1 number, 1 special
+
+### Data Protection
+- All API calls over HTTPS
+- RLS (Row Level Security) on Supabase
+- Input sanitization and validation
+- SQL injection prevention (parameterized queries)
+- XSS protection (Content Security Policy)
+- CSRF tokens
+
+### Privacy
+- GDPR compliance
+- Data export functionality
+- Account deletion (with 30-day grace period)
+- Anonymous usage analytics
+- Clear privacy policy
+- No selling of user data
+
+### API Security
+- Rate limiting (100 requests/min for free, 1000 for Pro)
+- API key rotation
+- Request signing
+- IP whitelisting for admin endpoints
+
+---
+
+## 📈 Marketing & Growth Strategy
+
+### Launch Strategy
+1. **Beta Program** (Month -2 to -1)
+   - 100 invite-only beta testers
+   - Collect feedback and iterate
+   - Build community advocates
+
+2. **Soft Launch** (Month 1)
+   - Product Hunt launch
+   - Hacker News post
+   - Reddit (r/MealPrepSunday, r/EatCheapAndHealthy)
+   - Launch blog post
+
+3. **Public Launch** (Month 2)
+   - Press release
+   - Influencer partnerships
+   - Social media campaign
+   - Paid ads (Google, Facebook, Instagram)
+
+### Content Marketing
+- **Blog Posts**: 2-3x per week
+  - "10 Ways to Reduce Food Waste"
+  - "The True Cost of Expired Food"
+  - "5-Ingredient Recipes for Busy Families"
+  
+- **YouTube Channel**
+  - App tutorials
+  - Cooking with leftovers
+  - Zero-waste challenges
+
+- **Social Media**
+  - Instagram: Beautiful food photos, waste tips
+  - TikTok: Quick recipes, app hacks
+  - Twitter: News, updates, community
+
+### Partnerships
+- Sustainability organizations
+- Food banks (donate excess feature)
+- Cooking influencers
+- Kitchen appliance brands
+- Meal kit companies (competitor partnerships)
+
+### Referral Program
+```
+Refer a friend:
+- Friend gets 1 month Pro free
+- You get 1 month Pro free
+- Friend subscribes → You get $5 credit
+
+Milestone rewards:
+- 3 referrals → 3 months Pro free
+- 10 referrals → 1 year Pro free
+- 50 referrals → Lifetime Pro free
+```
+
+---
+
+## 🛠️ DevOps & Infrastructure
+
+### Deployment Pipeline
+```
+GitHub → CI/CD → Staging → Production
+
+CI/CD Steps:
+1. Run linting (ESLint, Prettier)
+2. Run type checking (TypeScript)
+3. Run unit tests
+4. Run integration tests
+5. Build application
+6. Run E2E tests
+7. Deploy to staging
+8. Smoke tests
+9. Manual approval
+10. Deploy to production
+11. Post-deployment tests
+```
+
+### Monitoring
+- **Sentry**: Error tracking
+- **PostHog**: Product analytics
+- **Vercel Analytics**: Performance monitoring
+- **Supabase Dashboard**: Database metrics
+- **Custom Dashboards**: Business metrics
+
+### Backup Strategy
+- Daily automated database backups
+- Point-in-time recovery (7 days)
+- Weekly full backups (retained for 3 months)
+- Disaster recovery plan documented
+
+---
+
+## 📚 Documentation Plan
+
+### User Documentation
+- Getting started guide
+- Feature tutorials (video + text)
+- FAQ
+- Troubleshooting
+- Best practices
+
+### Developer Documentation
+- API reference (OpenAPI/Swagger)
+- Architecture overview
+- Database schema docs
+- Contributing guidelines
+- Code style guide
+
+### Internal Documentation
+- Runbooks for common issues
+- Deployment procedures
+- Database migration guide
+- Third-party API documentation
+
+---
+
+## ✅ Success Criteria
+
+### MVP Success (Phase 1)
+- ✅ 100 active users
+- ✅ 80%+ AI ingredient recognition accuracy
+- ✅ < 5s average scan time
+- ✅ Users can find recipes in < 30s
+- ✅ 70%+ user satisfaction (survey)
+
+### Product-Market Fit (Phase 2-3)
+- ✅ 1,000 active users
+- ✅ 40%+ weekly retention
+- ✅ 5%+ free-to-paid conversion
+- ✅ NPS > 40
+- ✅ Organic growth > 20% MoM
+
+### Scale & Sustainability (Phase 4-5)
+- ✅ 10,000+ active users
+- ✅ $10,000+ MRR
+- ✅ < 5% monthly churn
+- ✅ Break-even on CAC within 6 months
+- ✅ 99.9% uptime
+
+---
+
+## 🎯 Next Immediate Steps
+
+1. **Validate Concept** (This Week)
+   - Survey 20-30 potential users
+   - Validate pain points
+   - Test pricing appetite
+
+2. **Setup Development Environment** (Week 1)
+   - Initialize Git repository
+   - Setup Supabase project
+   - Configure development tools
+   - Create project board (GitHub Projects or Linear)
+
+3. **Design Mockups** (Week 1-2)
+   - Landing page
+   - Core user flows
+   - Mobile screens
+   - Get feedback
+
+4. **Start Coding** (Week 2+)
+   - Follow Phase 1 development plan
+   - Daily commits
+   - Weekly demos to potential users
+
+---
+
+## 🔄 Iterative Development Process
+
+### Agile Methodology
+```
+Sprint Duration: 2 weeks
+
+Sprint Structure:
+- Monday: Sprint planning
+- Daily: 15-min standups (if team grows)
+- Friday: Sprint review & retrospective
+
+Backlog Prioritization:
+1. Must-have (MVP blockers)
+2. Should-have (High impact)
+3. Nice-to-have (Low effort, high value)
+4. Future (Parking lot)
+```
+
+### Version Control Strategy
+```
+Branch Strategy (Git Flow):
+
+main
+├── develop
+│   ├── feature/inventory-scanning
+│   ├── feature/recipe-search
+│   ├── feature/meal-planning
+│   └── hotfix/critical-bug-fix
+
+Release Process:
+1. Create release branch from develop
+2. Test thoroughly
+3. Merge to main with tag (v1.0.0)
+4. Deploy to production
+5. Merge back to develop
+```
+
+---
+
+## 💻 Code Quality Standards
+
+### TypeScript Configuration
+```json
+{
+  "compilerOptions": {
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
+  }
+}
+```
+
+### ESLint Rules
+```javascript
+module.exports = {
+  extends: [
+    'next/core-web-vitals',
+    'plugin:@typescript-eslint/recommended',
+    'prettier'
+  ],
+  rules: {
+    'no-console': ['warn', { allow: ['error', 'warn'] }],
+    'prefer-const': 'error',
+    'no-var': 'error',
+    '@typescript-eslint/no-unused-vars': ['error', { 
+      argsIgnorePattern: '^_' 
+    }],
+    'react-hooks/exhaustive-deps': 'warn'
+  }
+};
+```
+
+### Code Review Checklist
+- [ ] Follows TypeScript strict mode
+- [ ] All functions have type definitions
+- [ ] Error handling implemented
+- [ ] Loading states for async operations
+- [ ] Accessible (ARIA labels, keyboard navigation)
+- [ ] Mobile responsive
+- [ ] Tests written for new features
+- [ ] No console.logs in production code
+- [ ] Comments for complex logic
+- [ ] Performance optimized (memoization, lazy loading)
+
+---
+
+## 🎮 User Onboarding Flow
+
+### First-Time User Experience
+
+**Step 1: Welcome Screen**
+```
+┌─────────────────────────────────────────┐
+│                                         │
+│     🥗 Welcome to Recipe Rescue!        │
+│                                         │
+│   Never waste food again. Smart         │
+│   inventory tracking + recipe           │
+│   suggestions using what you have.      │
+│                                         │
+│   [Get Started] [Learn More]            │
+│                                         │
+└─────────────────────────────────────────┘
+```
+
+**Step 2: Quick Setup**
+```
+Question 1: What's your cooking skill level?
+○ Beginner    ○ Intermediate    ○ Advanced
+
+Question 2: Any dietary preferences? (multi-select)
+□ Vegetarian   □ Vegan         □ Gluten-Free
+□ Dairy-Free   □ Nut-Free      □ None
+
+Question 3: How often do you cook?
+○ Daily    ○ Few times/week    ○ Weekly    ○ Occasionally
+
+Question 4: Main goal with Recipe Rescue?
+○ Reduce food waste
+○ Save money on groceries
+○ Discover new recipes
+○ Meal planning
+```
+
+**Step 3: First Inventory Scan**
+```
+┌─────────────────────────────────────────┐
+│   Let's start with your first scan!     │
+│                                         │
+│   📸 Take a photo of your fridge        │
+│       or pantry                         │
+│                                         │
+│   Or skip and add items manually        │
+│                                         │
+│   [Take Photo] [Add Manually] [Skip]    │
+└─────────────────────────────────────────┘
+```
+
+**Step 4: AI Results & Confirmation**
+```
+┌─────────────────────────────────────────┐
+│   We found these ingredients:           │
+│                                         │
+│   ✓ Chicken breast (2 pieces)          │
+│   ✓ Milk (1 carton)                    │
+│   ✓ Lettuce (1 head)                   │
+│   ? Tomato (3) - Not sure? Edit         │
+│                                         │
+│   Tap any item to edit or remove        │
+│                                         │
+│   [Confirm & Continue]                  │
+└─────────────────────────────────────────┘
+```
+
+**Step 5: Set Expiration Dates**
+```
+┌─────────────────────────────────────────┐
+│   When do these items expire?           │
+│                                         │
+│   Chicken breast                        │
+│   Suggested: 2 days (📍)                │
+│   [Change Date]                         │
+│                                         │
+│   💡 Tip: We'll remind you before       │
+│   items expire!                         │
+│                                         │
+│   [Use Suggestions] [Set Manually]      │
+└─────────────────────────────────────────┘
+```
+
+**Step 6: First Recipe Suggestions**
+```
+┌─────────────────────────────────────────┐
+│   🎉 You can make 47 recipes!           │
+│                                         │
+│   Top Priority (using expiring items):  │
+│                                         │
+│   🍗 Lemon Garlic Chicken               │
+│   ⏱ 30 min  |  ⭐ 4.8  |  🔥 96% match │
+│                                         │
+│   [View Recipes] [Find More]            │
+│                                         │
+│   [Complete Setup]                      │
+└─────────────────────────────────────────┘
+```
+
+**Step 7: Optional - Create Account**
+```
+┌─────────────────────────────────────────┐
+│   Save your progress?                   │
+│                                         │
+│   Create a free account to:             │
+│   • Sync across devices                 │
+│   • Access from anywhere                │
+│   • Get personalized recommendations    │
+│   • Track your waste reduction          │
+│                                         │
+│   [Create Account]                      │
+│   [Continue Without Account]            │
+└─────────────────────────────────────────┘
+```
+
+---
+
+## 🎯 Feature Prioritization Matrix
+
+```
+High Impact, Low Effort (DO FIRST):
+├── Manual ingredient entry with autocomplete
+├── Basic expiration date tracking
+├── Recipe search by ingredients
+├── Save favorite recipes
+└── Shopping list generation
+
+High Impact, High Effort (PLAN CAREFULLY):
+├── AI photo recognition
+├── Personalized recommendations
+├── Meal planning calendar
+├── Waste analytics dashboard
+└── Multi-user households
+
+Low Impact, Low Effort (FILL GAPS):
+├── Dark mode
+├── Export data
+├── Recipe collections
+├── Social sharing
+└── Notification preferences
+
+Low Impact, High Effort (AVOID):
+├── Smart fridge integration
+├── AR ingredient scanning
+├── Video recipe player
+├── Voice recipe assistant
+└── Blockchain food tracking (lol)
+```
+
+---
+
+## 🔧 Performance Optimization Strategy
+
+### Frontend Optimization
+```javascript
+// 1. Code Splitting
+const RecipeDetails = lazy(() => import('./RecipeDetails'));
+const MealPlanner = lazy(() => import('./MealPlanner'));
+
+// 2. Image Optimization
+import Image from 'next/image';
+<Image 
+  src={ingredient.image} 
+  width={100} 
+  height={100}
+  loading="lazy"
+  placeholder="blur"
+/>
+
+// 3. Memoization
+const expensiveCalculation = useMemo(() => 
+  calculateRecipeMatches(inventory, recipes),
+  [inventory, recipes]
+);
+
+// 4. Debouncing
+const debouncedSearch = useDebounce(searchTerm, 300);
+
+// 5. Virtual Lists (for large inventories)
+import { FixedSizeList } from 'react-window';
+```
+
+### Backend Optimization
+```sql
+-- 1. Database Indexing (already covered above)
+
+-- 2. Query Optimization
+-- Instead of:
+SELECT * FROM recipes WHERE ...
+
+-- Use:
+SELECT id, title, image_url, rating_avg, prep_time_minutes
+FROM recipes 
+WHERE ...
+LIMIT 20;
+
+-- 3. Caching Strategy
+-- Redis cache for:
+- Popular recipes (24 hour TTL)
+- Recipe match scores (1 hour TTL)
+- User preferences (session TTL)
+
+-- 4. Batch Operations
+-- Instead of N queries:
+INSERT INTO inventory_items (name, quantity) VALUES ('chicken', 2);
+INSERT INTO inventory_items (name, quantity) VALUES ('rice', 1);
+
+-- Use one:
+INSERT INTO inventory_items (name, quantity) VALUES 
+  ('chicken', 2),
+  ('rice', 1),
+  ('onion', 3);
+```
+
+### API Response Optimization
+```javascript
+// Pagination for large datasets
+GET /api/recipes?page=1&limit=20
+
+// Partial responses
+GET /api/recipes?fields=id,title,image,rating
+
+// Compression
+app.use(compression());
+
+// CDN for static assets
+// Cloudflare or Vercel Edge Network
+```
+
+---
+
+## 🧩 Third-Party Integrations
+
+### Essential Integrations (Phase 1-3)
+```javascript
+// 1. Gemini AI (Image Recognition)
+// Already covered above
+
+// 2. Supabase (Auth + Database)
+import { createClient } from '@supabase/supabase-js';
+const supabase = createClient(url, anonKey);
+
+// 3. Stripe (Payments)
+import Stripe from 'stripe';
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+
+// 4. SendGrid/Resend (Email)
+import { Resend } from 'resend';
+const resend = new Resend(process.env.RESEND_API_KEY);
+
+// 5. Sentry (Error Tracking)
+import * as Sentry from '@sentry/nextjs';
+Sentry.init({ dsn: process.env.SENTRY_DSN });
+```
+
+### Optional Integrations (Phase 4-5)
+```javascript
+// 1. Instacart API (Grocery Delivery)
+// 2. Amazon Fresh API
+// 3. Open Food Facts (Barcode Database)
+// 4. Nutritionix API (Nutrition Data)
+// 5. Spoonacular API (Recipe Backup)
+// 6. Twilio (SMS Notifications)
+// 7. Cloudinary (Image Hosting)
+// 8. Algolia (Search Enhancement)
+// 9. PostHog (Product Analytics)
+// 10. Intercom (Customer Support)
+```
+
+---
+
+## 📱 Mobile App Considerations
+
+### React Native vs Web
+
+**Pros of Native App:**
+- Better camera integration
+- Push notifications (more reliable)
+- Offline mode (better UX)
+- Barcode scanning (easier)
+- App store visibility
+- Native feel and performance
+
+**Cons of Native App:**
+- 2x development effort (iOS + Android)
+- App store approval process
+- Separate deployment pipeline
+- Larger codebase to maintain
+- Slower iteration speed
+
+**Recommendation:** Start with PWA (Progressive Web App)
+- Install prompt on mobile
+- Offline support via Service Workers
+- Push notifications (via web APIs)
+- Camera access (via web APIs)
+- 80% of native experience, 20% of effort
+- Later port to React Native if needed
+
+### PWA Features
+```javascript
+// manifest.json
+{
+  "name": "Recipe Rescue",
+  "short_name": "Recipe Rescue",
+  "description": "Smart food waste reduction",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#22c55e",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
+
+// Service Worker for offline support
+self.addEventListener('fetch', (event) => {
+  event.respondWith(
+    caches.match(event.request).then((response) => {
+      return response || fetch(event.request);
+    })
+  );
+});
+```
+
+---
+
+## 🌍 Internationalization (i18n)
+
+### Language Support Strategy
+
+**Phase 1 (Launch):** English only
+
+**Phase 2 (Growth):**
+- Spanish (2nd largest market)
+- French
+- German
+
+**Phase 3 (Scale):**
+- Portuguese (Brazil)
+- Italian
+- Japanese
+- Mandarin Chinese
+- Hindi
+- Arabic
+
+### Implementation
+```javascript
+// Using next-intl
+import {useTranslations} from 'next-intl';
+
+function InventoryList() {
+  const t = useTranslations('Inventory');
+  
+  return (
+    <div>
+      <h1>{t('title')}</h1>
+      <p>{t('description')}</p>
+      <button>{t('addItem')}</button>
+    </div>
+  );
+}
+
+// messages/en.json
+{
+  "Inventory": {
+    "title": "My Pantry",
+    "description": "Track your ingredients",
+    "addItem": "Add Item"
+  }
+}
+
+// messages/es.json
+{
+  "Inventory": {
+    "title": "Mi Despensa",
+    "description": "Rastrea tus ingredientes",
+    "addItem": "Agregar Artículo"
+  }
+}
+```
+
+### Localization Considerations
+- Date formats (MM/DD/YYYY vs DD/MM/YYYY)
+- Number formats (1,000.50 vs 1.000,50)
+- Currency symbols and placement
+- Measurement units (imperial vs metric)
+- Right-to-left languages (Arabic, Hebrew)
+- Pluralization rules (differs by language)
+
+---
+
+## 🎓 Learning Resources & Tech Stack Deep Dive
+
+### For You to Master:
+
+**React Advanced Patterns:**
+- Server Components (Next.js 13+)
+- Streaming SSR
+- React Query for server state
+- Zustand for client state
+- Advanced hooks patterns
+
+**AI Integration:**
+- Gemini API documentation
+- Prompt engineering techniques
+- Image preprocessing for better accuracy
+- Handling AI errors gracefully
+- Rate limiting strategies
+
+**Database Optimization:**
+- PostgreSQL query optimization
+- Index strategies
+- RLS (Row Level Security) in Supabase
+- Database migrations with Prisma/Drizzle
+- Connection pooling
+
+**Performance:**
+- Core Web Vitals optimization
+- Image optimization techniques
+- Code splitting strategies
+- Caching layers
+- CDN configuration
+
+**Mobile Development:**
+- React Native essentials
+- Expo workflow
+- Camera APIs
+- Push notifications
+- Offline storage (WatermelonDB)
+
+---
+
+## 🚨 Risk Mitigation
+
+### Technical Risks
+
+**Risk 1: AI Accuracy Issues**
+- Mitigation: Always show confidence scores, allow user editing
+- Backup: Manual entry is always available
+- Learning: Collect feedback to improve prompts
+
+**Risk 2: API Rate Limits (Gemini)**
+- Mitigation: Implement client-side image compression
+- Backup: Queue system for high traffic
+- Alternative: Train custom model if needed
+
+**Risk 3: Scalability Issues**
+- Mitigation: Start with serverless (auto-scaling)
+- Monitor: Set up alerts for performance degradation
+- Plan: Database read replicas if needed
+
+**Risk 4: Data Loss**
+- Mitigation: Automated backups (daily)
+- Testing: Regular backup restoration tests
+- Redundancy: Multi-region database setup (production)
+
+### Business Risks
+
+**Risk 1: Low User Adoption**
+- Mitigation: Extensive user testing before launch
+- Pivot: Adjust features based on feedback
+- Marketing: Strong launch strategy
+
+**Risk 2: High Churn Rate**
+- Mitigation: Focus on core value (waste reduction)
+- Engagement: Email notifications, push alerts
+- Retention: Gamification and achievements
+
+**Risk 3: Competition**
+- Mitigation: Unique features (AI scanning + expiration)
+- Speed: Iterate faster than competitors
+- Community: Build loyal user base
+
+**Risk 4: Monetization Failure**
+- Mitigation: Multiple revenue streams
+- Testing: Price testing with early users
+- Flexibility: Adjust tiers based on data
+
+---
+
+## 📞 Support Strategy
+
+### Self-Service Support
+```
+Help Center (Zendesk/Intercom):
+├── Getting Started
+│   ├── How to scan ingredients
+│   ├── Adding items manually
+│   └── Setting expiration dates
+├── Features
+│   ├── Finding recipes
+│   ├── Meal planning
+│   └── Shopping lists
+├── Account
+│   ├── Creating an account
+│   ├── Subscription management
+│   └── Household sharing
+├── Troubleshooting
+│   ├── Camera not working
+│   ├── AI recognition issues
+│   └── Login problems
+└── FAQ
+    ├── Is my data secure?
+    ├── How accurate is AI recognition?
+    └── What if I waste food?
+```
+
+### Tiered Support
+- **Free Users:** Help center + Community forum
+- **Pro Users:** Email support (24-48 hour response)
+- **Family Users:** Priority email + Chat support
+
+### Community Forum
+- User-driven support
+- Recipe sharing
+- Tips and tricks
+- Feature requests
+- Bug reports
+
+---
+
+## 🎉 Launch Checklist
+
+### Pre-Launch (2 weeks before)
+- [ ] All MVP features tested and working
+- [ ] Database migrations tested
+- [ ] Backup systems verified
+- [ ] Performance tested (load testing)
+- [ ] Security audit completed
+- [ ] Privacy policy finalized
+- [ ] Terms of service finalized
+- [ ] Help documentation complete
+- [ ] Support email setup (support@reciperescue.com)
+- [ ] Social media accounts created
+- [ ] Press kit prepared
+- [ ] Beta testers recruited (50-100)
+- [ ] Analytics tracking verified
+- [ ] Error monitoring active
+
+### Launch Day
+- [ ] Deploy to production
+- [ ] Smoke tests passing
+- [ ] Monitoring dashboards active
+- [ ] Product Hunt post scheduled
+- [ ] Social media announcements
+- [ ] Email to beta users
+- [ ] Reddit posts in relevant communities
+- [ ] Hacker News submission
+- [ ] Team ready for support influx
+- [ ] Celebration! 🎊
+
+### Post-Launch (First Week)
+- [ ] Monitor errors closely
+- [ ] Respond to all support requests
+- [ ] Track key metrics daily
+- [ ] Collect user feedback
+- [ ] Fix critical bugs immediately
+- [ ] Engage with community
+- [ ] Thank early adopters
+- [ ] Plan first iteration
+
+---
+
+## 🏆 Success Stories (Vision for Impact)
+
+### Individual Impact
+*"I used to throw away $100 worth of groceries every month. With Recipe Rescue, I've reduced that to almost zero. I'm saving money and feeling good about reducing waste."* - Sarah, Pro User
+
+### Family Impact
+*"Our household of 4 was constantly arguing about what to cook. Now we all share one pantry, plan meals together, and everyone knows what's expiring. Game changer!"* - The Johnson Family
+
+### Environmental Impact
+*"Our community challenge prevented 500kg of food waste in one month. That's incredible!"* - Community Challenge Participant
+
+### Your Impact Goals
+- **Year 1:** Save 100 tons of food from landfills
+- **Year 2:** Save 1,000 tons, $5M in user savings
+- **Year 3:** Save 10,000 tons, 50,000 households using the platform
+
+---
+
+## 🎯 FINAL SUMMARY: Your Action Plan
+
+### Month 1: Foundation
+1. Setup development environment
+2. Build core inventory management
+3. Integrate Gemini AI
+4. Basic recipe search (Supercook)
+5. Deploy MVP to staging
+
+### Month 2: Polish & Launch
+1. User testing and iteration
+2. Add expiration tracking
+3. Build onboarding flow
+4. Launch publicly (Product Hunt)
+5. Collect initial feedback
+
+### Month 3: Intelligence
+1. Implement recommendation engine
+2. Add waste analytics
+3. Build meal planning
+4. Optimize performance
+5. Start content marketing
+
+### Month 4: Social & Growth
+1. Add household sharing
+2. Build community features
+3. Recipe creator studio
+4. Referral program
+5. Influencer partnerships
+
+### Month 5: Monetization
+1. Stripe integration
+2. Launch Pro tier
+3. Build subscription management
+4. Add premium features
+5. Optimize conversion funnel
+
+### Month 6: Scale
+1. Mobile app (React Native)
+2. International expansion
+3. B2B pilot program
+4. Advanced integrations
+5. Plan for Year 2
+
+---
+
+## 📊 Dashboard Mockup (Key Metrics View)
+
+```
+┌────────────────────────────────────────────────────────────┐
+│  Recipe Rescue - Dashboard                     👤 Rajeet   │
+├────────────────────────────────────────────────────────────┤
+│                                                            │
+│  📊 This Month's Impact                                    │
+│  ┌──────────────┬──────────────┬──────────────┐          │
+│  │ Food Saved   │ Money Saved  │ CO2 Reduced  │          │
+│  │   15.2 kg    │    $127      │   45.6 kg    │          │
+│  │   ↑ 23%      │    ↑ 18%     │   ↑ 23%      │          │
+│  └──────────────┴──────────────┴──────────────┘          │
+│                                                            │
+│  ⚠️  Urgent (3 items expiring in 2 days)                  │
+│  ┌────────────────────────────────────────────┐          │
+│  │  🥬 Spinach        🥛 Milk      🍗 Chicken  │          │
+│  │  Expires tomorrow  2 days left  2 days     │          │
+│  │  [Find Recipes →]                          │          │
+│  └────────────────────────────────────────────┘          │
+│                                                            │
+│  🍳 Recommended Recipes (Using Expiring Items)            │
+│  ┌───────────┬───────────┬───────────┐                   │
+│  │ Spinach   │ Chicken   │ Pasta     │                   │
+│  │ Soup      │ Stir Fry  │ Primavera │                   │
+│  │ ⭐ 4.8     │ ⭐ 4.9     │ ⭐ 4.7     │                   │
+│  │ 98% match │ 95% match │ 92% match │                   │
+│  └───────────┴───────────┴───────────┘                   │
+│                                                            │
+│  📅 This Week's Meal Plan          [+ Add Meal]           │
+│  Monday    → Chicken Stir Fry                            │
+│  Tuesday   → [Plan a meal]                               │
+│  Wednesday → Spinach Soup                                │
+│                                                            │
+└────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 🎬 That's the Complete Plan!
+
+You now have:
+✅ **Full product specification** (all Supercook features + innovations)
+✅ **Complete technical architecture** (frontend, backend, database)
+✅ **Detailed database schema** (all tables with relationships)
+✅ **6-month development roadmap** (week-by-week breakdown)
+✅ **Business model** (freemium tiers + revenue projections)
+✅ **Marketing strategy** (launch plan + growth tactics)
+✅ **Risk mitigation** (technical + business risks)
+✅ **Success metrics** (product + business KPIs)
+
+**Total Estimated Effort:**
+- Solo developer: 6-9 months to production
+- With 1 designer + 1 developer: 4-6 months
+- With full team (3-4 people): 3-4 months
+
+**This is a $1M+ opportunity if executed well.**
+
+Ready to start building? Let me know which phase you want to dive into first, and I can provide specific code, designs, or implementation details! 🚀

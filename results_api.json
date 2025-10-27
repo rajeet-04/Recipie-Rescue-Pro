@@ -1,0 +1,911 @@
+https://d1.supercook.com/dyn/results
+
+POST
+
+form data:
+needsimage:1
+app:1
+kitchen:milk,egg,butter
+focus:
+exclude:
+kw:
+catname:
+start:0
+fave:false
+lang:en
+cv:2
+
+
+results:
+{
+    "possibilities": 458635,
+    "prompt": [
+        {
+            "ingredient": "flour",
+            "score": 1
+        },
+        {
+            "ingredient": "potato",
+            "score": 1
+        },
+        {
+            "ingredient": "bread",
+            "score": 1
+        },
+        {
+            "ingredient": "cheddar",
+            "score": 1
+        },
+        {
+            "ingredient": "lemon",
+            "score": 1
+        },
+        {
+            "ingredient": "self-raising flour",
+            "score": 1
+        },
+        {
+            "ingredient": "baking mix",
+            "score": 1
+        },
+        {
+            "ingredient": "gluten-free flour",
+            "score": 1
+        },
+        {
+            "ingredient": "sugar",
+            "score": 1
+        },
+        {
+            "ingredient": "brownie mix",
+            "score": 1
+        },
+        {
+            "ingredient": "heavy cream",
+            "score": 1
+        },
+        {
+            "ingredient": "whole-wheat flour",
+            "score": 1
+        },
+        {
+            "ingredient": "cornmeal",
+            "score": 1
+        },
+        {
+            "ingredient": "dark chocolate",
+            "score": 1
+        },
+        {
+            "ingredient": "chive",
+            "score": 1
+        },
+        {
+            "ingredient": "cornstarch",
+            "score": 1
+        },
+        {
+            "ingredient": "unbleached all-purpose flour",
+            "score": 1
+        },
+        {
+            "ingredient": "bread flour",
+            "score": 1
+        },
+        {
+            "ingredient": "seasoned salt",
+            "score": 1
+        },
+        {
+            "ingredient": "grits",
+            "score": 1
+        },
+        {
+            "ingredient": "corn",
+            "score": 1
+        },
+        {
+            "ingredient": "brown sugar",
+            "score": 1
+        },
+        {
+            "ingredient": "coconut flour",
+            "score": 1
+        },
+        {
+            "ingredient": "bacon",
+            "score": 1
+        },
+        {
+            "ingredient": "matzo",
+            "score": 1
+        },
+        {
+            "ingredient": "pancake mix",
+            "score": 1
+        },
+        {
+            "ingredient": "cornbread mix",
+            "score": 1
+        },
+        {
+            "ingredient": "macaroni",
+            "score": 1
+        },
+        {
+            "ingredient": "sourdough starter",
+            "score": 1
+        },
+        {
+            "ingredient": "cream cheese",
+            "score": 1
+        },
+        {
+            "ingredient": "white pepper",
+            "score": 1
+        },
+        {
+            "ingredient": "gluten-free baking flour",
+            "score": 1
+        },
+        {
+            "ingredient": "bell pepper",
+            "score": 1
+        },
+        {
+            "ingredient": "parsley",
+            "score": 1
+        },
+        {
+            "ingredient": "sweet potato",
+            "score": 1
+        },
+        {
+            "ingredient": "onion",
+            "score": 1
+        },
+        {
+            "ingredient": "confectioners’ sugar",
+            "score": 1
+        },
+        {
+            "ingredient": "cauliflower",
+            "score": 1
+        },
+        {
+            "ingredient": "corn cob",
+            "score": 1
+        },
+        {
+            "ingredient": "cooking spray",
+            "score": 1
+        },
+        {
+            "ingredient": "rice flour",
+            "score": 1
+        },
+        {
+            "ingredient": "ramen noodle soup",
+            "score": 1
+        },
+        {
+            "ingredient": "worcestershire",
+            "score": 1
+        },
+        {
+            "ingredient": "pesto",
+            "score": 1
+        },
+        {
+            "ingredient": "whole-wheat pastry flour",
+            "score": 1
+        },
+        {
+            "ingredient": "instant flour",
+            "score": 1
+        },
+        {
+            "ingredient": "monterey jack",
+            "score": 1
+        },
+        {
+            "ingredient": "phyllo",
+            "score": 1
+        },
+        {
+            "ingredient": "pretzels",
+            "score": 1
+        },
+        {
+            "ingredient": "blueberry muffin mix",
+            "score": 1
+        },
+        {
+            "ingredient": "red velvet cake mix",
+            "score": 1
+        },
+        {
+            "ingredient": "parmesan",
+            "score": 1
+        },
+        {
+            "ingredient": "milk powder",
+            "score": 1
+        },
+        {
+            "ingredient": "chocolate cake mix",
+            "score": 1
+        },
+        {
+            "ingredient": "egg noodle",
+            "score": 1
+        },
+        {
+            "ingredient": "cream",
+            "score": 1
+        },
+        {
+            "ingredient": "queso fresco",
+            "score": 1
+        },
+        {
+            "ingredient": "italian cheese blend",
+            "score": 1
+        },
+        {
+            "ingredient": "creme fraiche",
+            "score": 1
+        },
+        {
+            "ingredient": "cream of tartar",
+            "score": 1
+        },
+        {
+            "ingredient": "teff flour",
+            "score": 1
+        }
+    ],
+    "results": [
+        {
+            "cluster": [],
+            "domain": "foxvalleyfoodie.com",
+            "id": "f7fd867a76dd85a637fdfe3485f6b6df",
+            "img": "https://i2.supercook.com/f/7/f/d/f7fd867a76dd85a637fdfe3485f6b6df-t.jpg",
+            "needs": [],
+            "title": "How to Make Perfect Scrambled Eggs - Light & Fluffy",
+            "uses": "milk,butter,egg",
+            "v": 0
+        },
+        {
+            "cluster": [],
+            "domain": "food.com",
+            "id": "409053",
+            "img": "https://i2.supercook.com/4/0/9/0/409053-t.jpg",
+            "needs": [],
+            "title": "Simple Scrambled Eggs",
+            "uses": "milk,butter,egg",
+            "v": 0
+        },
+        {
+            "cluster": [],
+            "domain": "bhg.com",
+            "id": "6971778d1467d5c4454c09276907d751",
+            "img": "https://i2.supercook.com/6/9/7/1/6971778d1467d5c4454c09276907d751-t.jpg",
+            "needs": [],
+            "title": "Scrambled Eggs",
+            "uses": "milk,butter,egg",
+            "v": 0
+        },
+        {
+            "cluster": [],
+            "domain": "justapinch.com",
+            "id": "5cb79e7c8b3737333cc7bd09",
+            "img": "https://i2.supercook.com/5/c/b/7/5cb79e7c8b3737333cc7bd09-t.jpg",
+            "needs": [],
+            "title": "Perfect Oven Scrambled Eggs",
+            "uses": "milk,butter,egg",
+            "v": 0
+        },
+        {
+            "cluster": [],
+            "domain": "charlotteslivelykitchen.com",
+            "id": "6ad83742820361271565f2a46732bdeb",
+            "img": "https://i2.supercook.com/6/a/d/8/6ad83742820361271565f2a46732bdeb-t.jpg",
+            "needs": [],
+            "title": "Scrambled Eggs",
+            "uses": "milk,butter,egg",
+            "v": 0
+        },
+        {
+            "cluster": [],
+            "domain": "bettycrocker.com",
+            "id": "3544d7954786a25e251e9fdd1cefdf6f",
+            "img": "https://i2.supercook.com/3/5/4/4/3544d7954786a25e251e9fdd1cefdf6f-t.jpg",
+            "needs": [],
+            "title": "Scrambled Eggs",
+            "uses": "milk,butter,egg",
+            "v": 0
+        },
+        {
+            "cluster": [],
+            "domain": "thedailymeal.com",
+            "id": "9b315840ecaa3c3efc8b196b81d24289",
+            "img": "https://i2.supercook.com/9/b/3/1/9b315840ecaa3c3efc8b196b81d24289-t.jpg",
+            "needs": [],
+            "title": "Instant Pot Scrambled Eggs",
+            "uses": "milk,butter,egg",
+            "v": 0
+        },
+        {
+            "cluster": [],
+            "domain": "cincyshopper.com",
+            "id": "1e5ecdcc7a0b84622b4dfa29b47105d0",
+            "img": "https://i2.supercook.com/1/e/5/e/1e5ecdcc7a0b84622b4dfa29b47105d0-t.jpg",
+            "needs": [],
+            "title": "Oven Scrambled Eggs Recipe",
+            "uses": "milk,butter,egg",
+            "v": 0
+        },
+        {
+            "cluster": [],
+            "domain": "eggrecipes.co.uk",
+            "id": "ab923645442cbc4f8f9754fb4840deec",
+            "img": "https://i2.supercook.com/a/b/9/2/ab923645442cbc4f8f9754fb4840deec-t.jpg",
+            "needs": [],
+            "title": "Baby’s first omelette",
+            "uses": "milk,butter,egg",
+            "v": 0
+        },
+        {
+            "cluster": [],
+            "domain": "australianeggs.org.au",
+            "id": "b055b35a7858fcbf1a1bba02563b0b10",
+            "img": "https://i2.supercook.com/b/0/5/5/b055b35a7858fcbf1a1bba02563b0b10-t.jpg",
+            "needs": [],
+            "title": "Easy Scrambled Eggs Recipe",
+            "uses": "milk,butter,egg",
+            "v": 0
+        },
+        {
+            "cluster": [],
+            "domain": "thevintagemixer.com",
+            "id": "5ce792388b373722e48dc061",
+            "img": "https://i2.supercook.com/5/c/e/7/5ce792388b373722e48dc061-t.jpg",
+            "needs": [],
+            "title": "Perfect Soft Scrambled Eggs",
+            "uses": "milk,butter,egg",
+            "v": 0
+        },
+        {
+            "cluster": [],
+            "domain": "allrecipes.com",
+            "id": "f4426da91a4952120399b886fcbc3d68",
+            "img": "https://i2.supercook.com/f/4/4/2/f4426da91a4952120399b886fcbc3d68-t.jpg",
+            "needs": [],
+            "title": "Oven Scrambled Eggs",
+            "uses": "milk,butter,egg",
+            "v": 1
+        },
+        {
+            "cluster": [],
+            "domain": "leitesculinaria.com",
+            "id": "e37364af396d25b985e46fa445c77f5a",
+            "img": "https://i2.supercook.com/e/3/7/3/e37364af396d25b985e46fa445c77f5a-t.jpg",
+            "needs": [],
+            "title": "Perfect Scrambled Eggs",
+            "uses": "milk,butter,egg",
+            "v": 0
+        },
+        {
+            "cluster": [],
+            "domain": "incredibleegg.org",
+            "id": "015a88c119dff95871db202fa1bd503c",
+            "img": "https://i2.supercook.com/0/1/5/a/015a88c119dff95871db202fa1bd503c-t.jpg",
+            "needs": [],
+            "title": "Basic Scrambled Eggs Recipe",
+            "uses": "milk,butter,egg",
+            "v": 0
+        },
+        {
+            "cluster": [],
+            "domain": "keyingredient.com",
+            "id": "3895cf3fd8f7508e36374caac1deaf03",
+            "img": "https://i2.supercook.com/3/8/9/5/3895cf3fd8f7508e36374caac1deaf03-t.jpg",
+            "needs": [],
+            "title": "The Perfect Omelet Recipe - (4.5/5)",
+            "uses": "milk,butter,egg",
+            "v": 0
+        },
+        {
+            "cluster": [],
+            "domain": "eggrecipes.co.uk",
+            "id": "30c6b5923e6cfce4a605a8d2db327029",
+            "img": "https://i2.supercook.com/3/0/c/6/30c6b5923e6cfce4a605a8d2db327029-t.jpg",
+            "needs": [],
+            "title": "Baby’s first scrambled egg",
+            "uses": "milk,butter,egg",
+            "v": 0
+        },
+        {
+            "cluster": [],
+            "domain": "food.com",
+            "id": "483254",
+            "img": "https://i2.supercook.com/4/8/3/2/483254-t.jpg",
+            "needs": [],
+            "title": "Scrambled Eggs",
+            "uses": "milk,butter,egg",
+            "v": 0
+        },
+        {
+            "cluster": [],
+            "domain": "food.com",
+            "id": "15124",
+            "img": "https://i2.supercook.com/1/5/1/2/15124-t.jpg",
+            "needs": [],
+            "title": "Fluffy Oven Scrambled Eggs",
+            "uses": "milk,butter,egg",
+            "v": 0
+        },
+        {
+            "cluster": [],
+            "domain": "iheartnaptime.net",
+            "id": "78fea417d77bd37c87071eb95329d8c7",
+            "img": "https://i2.supercook.com/7/8/f/e/78fea417d77bd37c87071eb95329d8c7-t.jpg",
+            "needs": [],
+            "title": "Scrambled Eggs Recipe",
+            "uses": "milk,butter,egg",
+            "v": 0
+        },
+        {
+            "cluster": [],
+            "domain": "timesofindia.com",
+            "id": "766cc18d145f7b371a8a3f97710663d0",
+            "img": "https://i2.supercook.com/7/6/6/c/766cc18d145f7b371a8a3f97710663d0-t.jpg",
+            "needs": [],
+            "title": "French Omelette Recipe",
+            "uses": "milk,butter,egg",
+            "v": 0
+        },
+        {
+            "cluster": [],
+            "domain": "eggrecipes.co.uk",
+            "id": "b77dc52b8d73b66c27c398edf5811ac8",
+            "img": "https://i2.supercook.com/b/7/7/d/b77dc52b8d73b66c27c398edf5811ac8-t.jpg",
+            "needs": [],
+            "title": "How to make scrambled eggs",
+            "uses": "milk,butter,egg",
+            "v": 0
+        },
+        {
+            "cluster": [],
+            "domain": "thrillist.com",
+            "id": "d74df764cc34a6c3b26876c1fd3f62fa",
+            "img": "https://i2.supercook.com/d/7/4/d/d74df764cc34a6c3b26876c1fd3f62fa-t.jpg",
+            "needs": [],
+            "title": "Perfect Scrambled Eggs Recipe",
+            "uses": "milk,butter,egg",
+            "v": 0
+        },
+        {
+            "cluster": [],
+            "domain": "leitesculinaria.com",
+            "id": "5d2b81d18b37370ed0f91c92",
+            "img": "https://i2.supercook.com/5/d/2/b/5d2b81d18b37370ed0f91c92-t.jpg",
+            "needs": [],
+            "title": "Perfect Scrambled Eggs",
+            "uses": "milk,butter,egg",
+            "v": 0
+        },
+        {
+            "cluster": [],
+            "domain": "recipevibes.com",
+            "id": "37adc54873fec908f8b250f24ede6dc3",
+            "img": "https://i2.supercook.com/3/7/a/d/37adc54873fec908f8b250f24ede6dc3-t.jpg",
+            "needs": [],
+            "title": "Instant Pot Scrambled Eggs",
+            "uses": "milk,butter,egg",
+            "v": 1
+        },
+        {
+            "cluster": [],
+            "domain": "frugalhausfrau.com",
+            "id": "ed4e20b2911abeb2c02ea5155704f748",
+            "img": "https://i2.supercook.com/e/d/4/e/ed4e20b2911abeb2c02ea5155704f748-t.jpg",
+            "needs": [],
+            "title": "Oven Baked \"Hotel\" Eggs",
+            "uses": "milk,butter,egg",
+            "v": 0
+        },
+        {
+            "cluster": [],
+            "domain": "myfoodbook.com.au",
+            "id": "88c9cdedeb067ad9d7481c2f1706b885",
+            "img": "https://i2.supercook.com/8/8/c/9/88c9cdedeb067ad9d7481c2f1706b885-t.jpg",
+            "needs": [],
+            "title": "How to scramble Eggs",
+            "uses": "milk,butter,egg",
+            "v": 0
+        },
+        {
+            "cluster": [],
+            "domain": "unsophisticook.com",
+            "id": "de348fa52e23b5ecabab6be937c896b0",
+            "img": "https://i2.supercook.com/d/e/3/4/de348fa52e23b5ecabab6be937c896b0-t.jpg",
+            "needs": [],
+            "title": "Basic Baked (Shirred) Eggs",
+            "uses": "milk,butter,egg",
+            "v": 0
+        },
+        {
+            "cluster": [],
+            "domain": "budgetsavvydiva.com",
+            "id": "4d48647aa6bfb847a3dba82e38bd62e2",
+            "img": "https://i2.supercook.com/4/d/4/8/4d48647aa6bfb847a3dba82e38bd62e2-t.jpg",
+            "needs": [],
+            "title": "Oven Scrambled Eggs Recipe",
+            "uses": "milk,butter,egg",
+            "v": 0
+        },
+        {
+            "cluster": [],
+            "domain": "forktospoon.com",
+            "id": "14925ed1d5003acc58c811d3b8986cbd",
+            "img": "https://i2.supercook.com/1/4/9/2/14925ed1d5003acc58c811d3b8986cbd-t.jpg",
+            "needs": [],
+            "title": "Air Fryer Scrambled Eggs",
+            "uses": "milk,butter,egg",
+            "v": 0
+        },
+        {
+            "cluster": [],
+            "domain": "indiafoodnetwork.in",
+            "id": "9dc74d9e87f7ab8e963e0cc4758bb0da",
+            "img": "https://i2.supercook.com/9/d/c/7/9dc74d9e87f7ab8e963e0cc4758bb0da-t.jpg",
+            "needs": [],
+            "title": "Moist Scrambled Eggs",
+            "uses": "milk,butter,egg",
+            "v": 0
+        },
+        {
+            "cluster": [],
+            "domain": "loseweightbyeating.com",
+            "id": "708f44d89da4f786f1145aaf63fe46a0",
+            "img": "https://i2.supercook.com/7/0/8/f/708f44d89da4f786f1145aaf63fe46a0-t.jpg",
+            "needs": [],
+            "title": "Baked Scrambled Eggs",
+            "uses": "milk,butter,egg",
+            "v": 0
+        },
+        {
+            "cluster": [],
+            "domain": "feedingyourfam.com",
+            "id": "bbef28257aae90fa3fba91a759935f77",
+            "img": "https://i2.supercook.com/b/b/e/f/bbef28257aae90fa3fba91a759935f77-t.jpg",
+            "needs": [],
+            "title": "Scrambled Egg Recipe",
+            "uses": "butter,egg",
+            "v": 0
+        },
+        {
+            "cluster": [],
+            "domain": "forktospoon.com",
+            "id": "bc086793f2a5263038042ff7088a7f71",
+            "img": "https://i2.supercook.com/b/c/0/8/bc086793f2a5263038042ff7088a7f71-t.jpg",
+            "needs": [],
+            "title": "The Best Fried Egg Recipe, Instant Pot, Vortex Plus, Air Fried, Air Fryer",
+            "uses": "butter,egg",
+            "v": 0
+        },
+        {
+            "cluster": [],
+            "domain": "sixdollarfamily.com",
+            "id": "86f7edb34626dec6d31f23c359c9050d",
+            "img": "https://i2.supercook.com/8/6/f/7/86f7edb34626dec6d31f23c359c9050d-t.jpg",
+            "needs": [],
+            "title": "How to Make a Heavy Whipping Cream Substitute",
+            "uses": "milk,butter",
+            "v": 0
+        },
+        {
+            "cluster": [],
+            "domain": "tasty.co",
+            "id": "d95e9eae409f981626625f41ddd16820",
+            "img": "https://i2.supercook.com/d/9/5/e/d95e9eae409f981626625f41ddd16820-t.jpg",
+            "needs": [],
+            "title": "Sunny-Side Up Recipe by Tasty",
+            "uses": "butter,egg",
+            "v": 1
+        },
+        {
+            "cluster": [],
+            "domain": "eatwell.co.nz",
+            "id": "ebd8d4d5eae5dfb1955f9ad0bc70962f",
+            "img": "https://i2.supercook.com/e/b/d/8/ebd8d4d5eae5dfb1955f9ad0bc70962f-t.jpg",
+            "needs": [],
+            "title": "Classic omelette\n( SERVES 1 )",
+            "uses": "butter,egg",
+            "v": 0
+        },
+        {
+            "cluster": [],
+            "domain": "eggs.ca",
+            "id": "3a78d616d2535ebf5487dc921560493f",
+            "img": "https://i2.supercook.com/3/a/7/8/3a78d616d2535ebf5487dc921560493f-t.jpg",
+            "needs": [],
+            "title": "Simple Scrambled Eggs",
+            "uses": "butter,egg",
+            "v": 0
+        },
+        {
+            "cluster": [],
+            "domain": "pinchofyum.com",
+            "id": "46c44a7cada10fc041fe1920b5c0122c",
+            "img": "https://i2.supercook.com/4/6/c/4/46c44a7cada10fc041fe1920b5c0122c-t.jpg",
+            "needs": [],
+            "title": "Life Changing Soft Scrambled Eggs",
+            "uses": "butter,egg",
+            "v": 1
+        },
+        {
+            "cluster": [],
+            "domain": "pachakam.com",
+            "id": "ad901537240ee77b709cae10e92c07eb",
+            "img": "https://i2.supercook.com/a/d/9/0/ad901537240ee77b709cae10e92c07eb-t.jpg",
+            "needs": [],
+            "title": "Eggs -  Sunny Side Up",
+            "uses": "butter,egg",
+            "v": 0
+        },
+        {
+            "cluster": [],
+            "domain": "allrecipes.com",
+            "id": "f3d67508e904ac8880c7836b58228fdf",
+            "img": "https://i2.supercook.com/f/3/d/6/f3d67508e904ac8880c7836b58228fdf-t.jpg",
+            "needs": [],
+            "title": "Fried Boiled Eggs",
+            "uses": "butter,egg",
+            "v": 0
+        },
+        {
+            "cluster": [],
+            "domain": "recipesthatcrock.com",
+            "id": "5cc8e7178b37373ae4e5ad08",
+            "img": "https://i2.supercook.com/5/c/c/8/5cc8e7178b37373ae4e5ad08-t.jpg",
+            "needs": [],
+            "title": "No-Peel Crock Pot Hard Boiled Eggs",
+            "uses": "butter,egg",
+            "v": 0
+        },
+        {
+            "cluster": [],
+            "domain": "iamafoodblog.com",
+            "id": "f901adef8fc80c27d01cfc0c2c780f75",
+            "img": "https://i2.supercook.com/f/9/0/1/f901adef8fc80c27d01cfc0c2c780f75-t.jpg",
+            "needs": [],
+            "title": "Slow Scrambled Eggs Recipe",
+            "uses": "butter,egg",
+            "v": 0
+        },
+        {
+            "cluster": [],
+            "domain": "foodnetwork.com",
+            "id": "8b1735caa5231ff78094fbe036710cca",
+            "img": "https://i2.supercook.com/8/b/1/7/8b1735caa5231ff78094fbe036710cca-t.jpg",
+            "needs": [],
+            "title": "Simple Scrambled Eggs",
+            "uses": "butter,egg",
+            "v": 0
+        },
+        {
+            "cluster": [],
+            "domain": "incredibleegg.org",
+            "id": "9dc4644c74a9f5bcad5f5c90e8c25cbd",
+            "img": "https://i2.supercook.com/9/d/c/4/9dc4644c74a9f5bcad5f5c90e8c25cbd-t.jpg",
+            "needs": [],
+            "title": "Scrambled Eggs in the Microwave",
+            "uses": "milk,egg",
+            "v": 0
+        },
+        {
+            "cluster": [],
+            "domain": "eatwhattonight.com",
+            "id": "5d2e6a3e8b37371d145203bb",
+            "img": "https://i2.supercook.com/5/d/2/e/5d2e6a3e8b37371d145203bb-t.jpg",
+            "needs": [],
+            "title": "Easy Fluffy Scrambled Eggs",
+            "uses": "butter,egg",
+            "v": 0
+        },
+        {
+            "cluster": [],
+            "domain": "mychineserecipes.com",
+            "id": "fcfd4d9db1112a930a7eb7f20a352dc7",
+            "img": "https://i2.supercook.com/f/c/f/d/fcfd4d9db1112a930a7eb7f20a352dc7-t.jpg",
+            "needs": [],
+            "title": "Double-skin Milk Pudding Recipe",
+            "uses": "milk,egg",
+            "v": 0
+        },
+        {
+            "cluster": [],
+            "domain": "seriouseats.com",
+            "id": "7884ddceeb708a2725664dbc70e1fb1c",
+            "img": "https://i2.supercook.com/7/8/8/4/7884ddceeb708a2725664dbc70e1fb1c-t.jpg",
+            "needs": [],
+            "title": "Classic French Omelette Recipe",
+            "uses": "butter,egg",
+            "v": 0
+        },
+        {
+            "cluster": [],
+            "domain": "eatwell.co.nz",
+            "id": "e16dc5f8d32713e1d44b9a15bc6cf25a",
+            "img": "https://i2.supercook.com/e/1/6/d/e16dc5f8d32713e1d44b9a15bc6cf25a-t.jpg",
+            "needs": [],
+            "title": "Scrambled eggs for one\n( SERVES 1 )",
+            "uses": "butter,egg",
+            "v": 0
+        },
+        {
+            "cluster": [],
+            "domain": "food.com",
+            "id": "b193a35fd36ed3e9d58d4db520149828",
+            "img": "https://i2.supercook.com/b/1/9/3/b193a35fd36ed3e9d58d4db520149828-t.jpg",
+            "needs": [],
+            "title": "Perfect Soft Boiled Eggs",
+            "uses": "butter,egg",
+            "v": 0
+        },
+        {
+            "cluster": [],
+            "domain": "bettycrocker.com",
+            "id": "20004aea1a6c835bf3706a296a366663",
+            "img": "https://i2.supercook.com/2/0/0/0/20004aea1a6c835bf3706a296a366663-t.jpg",
+            "needs": [],
+            "title": "French Omelet",
+            "uses": "butter,egg",
+            "v": 0
+        },
+        {
+            "cluster": [],
+            "domain": "bhg.com",
+            "id": "a12ab5d40548b0cc560bc278f585e040",
+            "img": "https://i2.supercook.com/a/1/2/a/a12ab5d40548b0cc560bc278f585e040-t.jpg",
+            "needs": [],
+            "title": "Fried Eggs All the Ways",
+            "uses": "butter,egg",
+            "v": 0
+        },
+        {
+            "cluster": [],
+            "domain": "ourbestbites.com",
+            "id": "5be455745c85e1f2058300de901d5ba6",
+            "img": "https://i2.supercook.com/5/b/e/4/5be455745c85e1f2058300de901d5ba6-t.jpg",
+            "needs": [],
+            "title": "Large Batch Poached Eggs and Fried Eggs",
+            "uses": "butter,egg",
+            "v": 0
+        },
+        {
+            "cluster": [],
+            "domain": "lacuisinedannie.com",
+            "id": "f70f762b4e2602b454f3047dfb575f13",
+            "img": "https://i2.supercook.com/f/7/0/f/f70f762b4e2602b454f3047dfb575f13-t.jpg",
+            "needs": [],
+            "title": "Recipe Basic Omelette",
+            "uses": "butter,egg",
+            "v": 0
+        },
+        {
+            "cluster": [],
+            "domain": "healthyrecipesblogs.com",
+            "id": "0f8a0856201deccbb82a221f575ddeda",
+            "img": "https://i2.supercook.com/0/f/8/a/0f8a0856201deccbb82a221f575ddeda-t.jpg",
+            "needs": [],
+            "title": "Soft Scrambled Eggs",
+            "uses": "butter,egg",
+            "v": 1
+        },
+        {
+            "cluster": [],
+            "domain": "recipesthatcrock.com",
+            "id": "9c270dfe597e9a4625e3667554610432",
+            "img": "https://i2.supercook.com/9/c/2/7/9c270dfe597e9a4625e3667554610432-t.jpg",
+            "needs": [],
+            "title": "Electric Pressure Cooker Hard Boiled Eggs (No Peel)",
+            "uses": "butter,egg",
+            "v": 1
+        },
+        {
+            "cluster": [],
+            "domain": "ricardocuisine.com",
+            "id": "5d1a434e8b37370254741658",
+            "img": "https://i2.supercook.com/5/d/1/a/5d1a434e8b37370254741658-t.jpg",
+            "needs": [],
+            "title": "Fried Eggs over the Flame",
+            "uses": "butter,egg",
+            "v": 0
+        },
+        {
+            "cluster": [],
+            "domain": "barbarabakes.com",
+            "id": "ab2f70b07545e4b8df3e87cfde3190d7",
+            "img": "https://i2.supercook.com/a/b/2/f/ab2f70b07545e4b8df3e87cfde3190d7-t.jpg",
+            "needs": [],
+            "title": "French Scrambled Eggs",
+            "uses": "butter,egg",
+            "v": 0
+        },
+        {
+            "cluster": [],
+            "domain": "thedailymeal.com",
+            "id": "b258beb02bc1edd6a6ad8b73f64eee81",
+            "img": "https://i2.supercook.com/b/2/5/8/b258beb02bc1edd6a6ad8b73f64eee81-t.jpg",
+            "needs": [],
+            "title": "Munavoi (Finnish Egg Butter)",
+            "uses": "butter,egg",
+            "v": 0
+        },
+        {
+            "cluster": [],
+            "domain": "savorylotus.com",
+            "id": "2460dc1ab0be0fada17deab611692042",
+            "img": "https://i2.supercook.com/2/4/6/0/2460dc1ab0be0fada17deab611692042-t.jpg",
+            "needs": [],
+            "title": "Egg Butter (Finnish Munavio)",
+            "uses": "butter,egg",
+            "v": 0
+        },
+        {
+            "cluster": [],
+            "domain": "wikihow.com",
+            "id": "03161f6c66c7fc52353930d5b18e8047",
+            "img": "https://i2.supercook.com/0/3/1/6/03161f6c66c7fc52353930d5b18e8047-t.jpg",
+            "needs": [],
+            "title": "Make an Egg Wash",
+            "uses": "milk,egg",
+            "v": 1
+        },
+        {
+            "cluster": [],
+            "domain": "timesofindia.com",
+            "id": "5ef76d39536ce12e50dc13b3974a3a68",
+            "img": "https://i2.supercook.com/5/e/f/7/5ef76d39536ce12e50dc13b3974a3a68-t.jpg",
+            "needs": [],
+            "title": "Egg Butter Recipe",
+            "uses": "butter,egg",
+            "v": 0
+        }
+    ],
+    "start": 0,
+    "tags": {
+        "ctag_american": 1,
+        "ctag_asian": 8,
+        "ctag_indian": 11,
+        "ctag_italian": 1,
+        "diet_gluten free": 845,
+        "diet_lactose free": 560,
+        "diet_vegetarian": 762,
+        "ptag_appetizer and snacks": 129,
+        "ptag_baked goods": 4,
+        "ptag_breakfast and brunch": 414,
+        "ptag_e": 2,
+        "ptag_easy": 5,
+        "ptag_oven free": 506,
+        "ptag_side dish": 53,
+        "ptag_slow cooker": 8,
+        "ptag_special occasions": 15,
+        "schema_5_ingredients_or_less": 675,
+        "schema_5_star_rating": 194,
+        "schema_ready_in_under_15mins": 343,
+        "schema_ready_in_under_5mins": 63
+    },
+    "total_can_make_right_now": 895,
+    "uses_for_exclusion": [
+        "egg",
+        "butter",
+        "milk"
+    ],
+    "version": "f9a2e810f6c1cf3eb95d9c8be61a6b7d"
+}
+

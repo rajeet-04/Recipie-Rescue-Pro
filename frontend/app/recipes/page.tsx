@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 
@@ -12,7 +12,7 @@ interface Recipe {
   match: number
 }
 
-export default function RecipesPage() {
+function RecipesContent() {
   const searchParams = useSearchParams()
   const [recipes, setRecipes] = useState<Recipe[]>([])
   const [loading, setLoading] = useState(false)
@@ -204,5 +204,20 @@ export default function RecipesPage() {
         )}
       </main>
     </div>
+  )
+}
+
+export default function RecipesPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center">
+        <div className="text-center">
+          <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-primary-500"></div>
+          <p className="mt-4 text-gray-600 dark:text-gray-400">Loading...</p>
+        </div>
+      </div>
+    }>
+      <RecipesContent />
+    </Suspense>
   )
 }
